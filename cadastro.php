@@ -3,6 +3,8 @@
 session_start();
 header('location:login.php');
 
+// Conexão com o banco
+
 $con = mysqli_connect('localhost', 'root');
 if($con){
   echo "Conexao realizada";
@@ -20,6 +22,8 @@ $q = "select * from cadastro where name = '$nome' && password = '$senha' ";
 $resultado = mysqli_query($con, $q);
 
 $num = mysqli_num_rows($resultado);
+
+// Check dos dados de cadastro
 
 if($num == 1){
   echo" Dados duplicados";

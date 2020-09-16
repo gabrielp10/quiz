@@ -4,6 +4,8 @@ if(!isset($_SESSION['usuario'])){
   header('location:login.php');
 }
 
+//Conexão com o banco
+
 $con = mysqli_connect('localhost', 'root');
 
 mysqli_select_db($con, 'quizdb');

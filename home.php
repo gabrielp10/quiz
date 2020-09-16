@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['usuario'])){
   header('location:login.php');
 }
-
+//Conexão com o banco
 $con = mysqli_connect('localhost', 'root');
 
 mysqli_select_db($con, 'quizdb');
@@ -15,20 +15,15 @@ mysqli_select_db($con, 'quizdb');
 <head>
   <title></title>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script></head>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <script src="js/bootstrap.min.js"></script></head>
 
 </head>
 
 <body>
-<div class="container">
+<div class="container"> <!-- Início container -->
 
   <br> <h1 class="text-center text-primary"> Linux Quiz </h1> <br>
   <h2 class="text-center text-success"> Bem-vindo ao Quiz, <?php echo $_SESSION['usuario']; ?> </h2>
@@ -44,6 +39,8 @@ mysqli_select_db($con, 'quizdb');
 
   <?php
 
+  //Looping perguntas
+
   for($i=1; $i <3; $i++){
   $q = "select * from perguntas where pid = $i";
   $query = mysqli_query($con, $q);
@@ -57,6 +54,8 @@ mysqli_select_db($con, 'quizdb');
 
       <?php
 
+      //Looping respostas
+
         $q = "select * from respostas where res_id = $i";
         $query = mysqli_query($con, $q);
 
@@ -69,14 +68,14 @@ mysqli_select_db($con, 'quizdb');
               <?php echo $rows['resposta'] ; ?>
           </div>
 
-
-
 <?php
   }
   }
 }
 
    ?>
+  <!-- Botões de submit - Logout -->
+
   <div class="text-center">
    <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
  </div>
