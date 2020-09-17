@@ -74,18 +74,25 @@ mysqli_select_db($con, 'quizdb');
 }
 
    ?>
+
   <!-- Botões de submit - Logout -->
+
+  <!-- Submit -->
 
   <div class="text-center">
    <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
- </div>
+  </div>
+
 </form> <br><br>
+
 </div>
 
-
+  <!-- Logout -->
   <div>
     <a href="logout.php" class="btn btn-warning "> Logout </a>
   </div>
+
+  <!-- Footer -->
 
   <div>
       <h5 class="text-center"> Quiz Linux - Gabriel Tito e Antônio Felix - 2020  </h5>

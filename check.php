@@ -20,6 +20,7 @@ mysqli_select_db($con, 'quizdb');
       echo "de 2, você selecionou " .$count. "respostas";
 
       $resultado = 0;
+      $i = 1;
 
       $selecionado = $_POST['quizcheck'];
       print_r($selecionado);
@@ -27,21 +28,28 @@ mysqli_select_db($con, 'quizdb');
       $q = "select * from perguntas";
       $query = mysqli_query($con, $q);
 
-      while($rows = mysqli_fetch_array($query)){
+      while($rows = mysqli_fetch_array($query) ){
         print_r($rows['res_id']);
 
-        $checked = $rows('res_id') == $selecionado ;
+        $checked = $rows['res_id'] == $selecionado[$i] ;
 
         if($checked){
           $resultado++;
         }
 
+        $i++;
 
       }
+
+      echo "<br> Seus pontos totais: " .$resultado;
 
     }
 
   }
+
+  $nome = $_SESSION['usuario'];
+  $resultadofinal = "insert into user(usuario, pergtotal, respostascorretas) values ('$nome', '2', '$resultado')";
+  $queryresult = mysqli_query($con,$resultadofinal);
 
 
 
