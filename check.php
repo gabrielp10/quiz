@@ -6,7 +6,7 @@ if(!isset($_SESSION['usuario'])){
 
 //Conexão com o banco
 
-$con = mysqli_connect('localhost', 'root');
+include_once  __DIR__ . '/include/conexao.php';
 
 mysqli_select_db($con, 'quizdb');
 

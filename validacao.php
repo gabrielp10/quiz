@@ -1,18 +1,10 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['usuario'])){
-header('location:login.php');
-}
 
 //Conexão com o banco
 
-$con = mysqli_connect('localhost', 'root');
-if($con){
-  echo "Conexao realizada";
-}else{
-  echo "Sem conexao";
-}
+include_once  __DIR__ . '/include/conexao.php';
 
 mysqli_select_db($con, 'sessao');
 
