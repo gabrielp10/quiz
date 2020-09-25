@@ -8,9 +8,6 @@ if(!isset($_SESSION['usuario'])){
 
 include_once  __DIR__ . '/include/conexao.php';
 
-mysqli_select_db($con, 'quizdb');
-
-
   if(isset($_POST['Enviar'])){
 
     if(!empty($_POST['quizcheck'])){

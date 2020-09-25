@@ -43,8 +43,17 @@ mysqli_select_db($con, 'quizdb');
 
   //Looping perguntas
 
-  for($i=1; $i <3; $i++){
-  $q = "select * from perguntas where pid = $i";
+  $q = "SELECT 
+          q.nome AS questionario_titulo,
+          qt.descricao AS pergunta,
+          qt.id AS id_questao,
+          qt.alternativa_a,
+          qt.alternativa_b,
+          qt.alternativa_c,
+          qt.alternativa_d,
+          qt.alternativa_e
+        FROM questionarios q
+        INNER JOIN questoes qt ON qt.fk_questionarios = q.id";
   $query = mysqli_query($con, $q);
 
   while($rows = mysqli_fetch_array($query) ){
@@ -53,29 +62,33 @@ mysqli_select_db($con, 'quizdb');
     <div class="card">
       <h4 class="card-header"> <?php echo $rows['pergunta'] ?> </h4>
 
-
-      <?php
-
-      //Looping respostas
-
-        $q = "select * from respostas where res_id = $i";
-        $query = mysqli_query($con, $q);
-
-        while($rows = mysqli_fetch_array($query) ){
-          ?>
-
           <div class="card-body">
-
-              <input type="radio" name="quizcheck[<?php echo $rows['res_id']; ?> ]" value="<?php echo $rows['rid'];  ?>">
-              <?php echo $rows['resposta'] ; ?>
+              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="A">
+              <?php echo $rows['alternativa_a'] ; ?>
           </div>
 
+          <div class="card-body">
+              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="B">
+              <?php echo $rows['alternativa_b'] ; ?>
+          </div>
+
+          <div class="card-body">
+              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="C">
+              <?php echo $rows['alternativa_c'] ; ?>
+          </div>
+
+          <div class="card-body">
+              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="D">
+              <?php echo $rows['alternativa_d'] ; ?>
+          </div>
+
+          <div class="card-body">
+              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="E">
+              <?php echo $rows['alternativa_e'] ; ?>
+          </div>
 <?php
   }
-  }
-}
-
-   ?>
+?>
 
   <!-- Botões de submit - Logout -->
 

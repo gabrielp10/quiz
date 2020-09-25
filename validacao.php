@@ -6,12 +6,10 @@ session_start();
 
 include_once  __DIR__ . '/include/conexao.php';
 
-mysqli_select_db($con, 'sessao');
-
 $nome = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-$q = "select * from cadastro where name = '$nome' && password = '$senha' ";
+$q = "SELECT * FROM usuarios WHERE username = '$nome' AND password = '$senha';";
 
 $resultado = mysqli_query($con, $q);
 
