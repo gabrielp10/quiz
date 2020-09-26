@@ -6,10 +6,8 @@ $database = 'quizdb';
 
 $con = mysqli_connect('localhost', $user, $password, $database);
 
-if ($con) {
-  echo "Conexao realizada";
-}
-else{
+if (!$con) {
   die("Sem conexao");
 }
+
 

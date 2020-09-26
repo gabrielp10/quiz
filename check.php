@@ -14,31 +14,27 @@ include_once  __DIR__ . '/include/conexao.php';
 
       $count = count($_POST['quizcheck']);
 
-      echo "de 2, você selecionou " .$count. "respostas";
-
       $resultado = 0;
-      $i = 1;
+      $i = 0;
 
       $selecionado = $_POST['quizcheck'];
-      print_r($selecionado);
 
-      $q = "select * from perguntas";
+      $idsQuestoes = array_keys($selecionado);
+      $idsQuestoes = implode(', ', $idsQuestoes);
+
+      $q = "SELECT id, resposta FROM questoes WHERE id IN ($idsQuestoes);";
       $query = mysqli_query($con, $q);
+      $resultado = 0;
 
       while($rows = mysqli_fetch_array($query) ){
-        print_r($rows['res_id']);
 
-        $checked = $rows['res_id'] == $selecionado[$i] ;
-
-        if($checked){
+        if($selecionado[$rows['id']] === $rows['resposta']){
           $resultado++;
         }
-
         $i++;
-
       }
 
-      echo "<br> Seus pontos totais: " .$resultado;
+      echo "<br> Seus pontos totais: $resultado de $i";
 
     }
 
