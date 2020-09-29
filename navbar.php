@@ -28,11 +28,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="logout.php">Logout</a>
-        </li>
+
       </ul>
+
+      <form class="form-inline my-2 my-lg-0">
+        <a class="btn btn-outline-dark my-2 my-sm-0" href="logout.php">Logout</a>
+      </form>
+
     </div>
+
+
   </nav>
 
 <body>
