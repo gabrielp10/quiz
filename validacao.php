@@ -20,7 +20,7 @@ $num = mysqli_num_rows($resultado);
 if($num == 1){
 
   $_SESSION['usuario'] = $nome;
-  header('location:home.php');
+  header('location:home2.php');
 
 }else{
   header('location:login.php');
