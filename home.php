@@ -30,9 +30,6 @@ mysqli_select_db($con, 'quizdb');
 
 <div class="container"> <!-- Início container -->
 
-  <br> <h1 class="text-center text-primary"> Linux Quiz </h1> <br>
-  <h2 class="text-center text-success"> Bem-vindo ao Quiz, <?php echo $_SESSION['usuario']; ?> </h2>
-
 
   <div class="card">
 
@@ -98,7 +95,7 @@ mysqli_select_db($con, 'quizdb');
   <!-- Submit -->
 
   <div class="text-center">
-   <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
+    <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
   </div>
 
 </form> <br><br>
@@ -106,11 +103,12 @@ mysqli_select_db($con, 'quizdb');
 </div>
 
   <!-- Logout -->
-  <div>
-    <a href="logout.php" class="btn btn-warning "> Logout </a>
+  <div class="d-flex justify-content-center mt-3">
+    <a href="logout.php" class="btn btn-warning btn-lg mb-3 "> Logout </a>
   </div>
 
   <!-- Footer -->
+
 
   <div>
       <h5 class="text-center"> Quiz Linux - Gabriel Tito e Antônio Felix - 2020  </h5>
