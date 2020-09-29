@@ -54,7 +54,7 @@ mysqli_select_db($con, 'quizdb');
               <div class="card-body">
                 <p class="card-text">Python básico para iniciantes.</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Iniciar</button>
+                  <a type="button" href="home.php" class="btn btn-sm btn-outline-secondary">Iniciar</a>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ mysqli_select_db($con, 'quizdb');
               <div class="card-body">
                 <p class="card-text">Comandos Linux para iniciantes.</p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Iniciar</button>
+                  <a type="button" href="home.php" class="btn btn-sm btn-outline-secondary">Iniciar</a>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@ mysqli_select_db($con, 'quizdb');
               <div class="card-body">
                 <p class="card-text">PHP básico para iniciantes.</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Iniciar</button>
+                  <a type="button" href="home.php" class="btn btn-sm btn-outline-secondary">Iniciar</a>
                 </div>
               </div>
             </div>
