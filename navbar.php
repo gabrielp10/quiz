@@ -31,9 +31,7 @@
 
       </ul>
 
-      <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-outline-dark my-2 my-sm-0" href="logout.php">Logout</a>
-      </form>
+
 
     </div>
 
