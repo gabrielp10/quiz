@@ -10,7 +10,7 @@
 
 <body>
 
-
+<?php include_once("./navbar.php") ?>
 
   <div class="container"> <!-- Inicio container -->
     <h1 class="display-4 text-center card-header"> Bem  vindo ao Quiz! <h1> <br>

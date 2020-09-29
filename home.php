@@ -25,6 +25,9 @@ mysqli_select_db($con, 'quizdb');
 </head>
 
 <body>
+
+<?php include_once("./navbar.php") ?>
+
 <div class="container"> <!-- Início container -->
 
   <br> <h1 class="text-center text-primary"> Linux Quiz </h1> <br>
@@ -43,7 +46,7 @@ mysqli_select_db($con, 'quizdb');
 
   //Looping perguntas
 
-  $q = "SELECT 
+  $q = "SELECT
           q.nome AS questionario_titulo,
           qt.descricao AS pergunta,
           qt.id AS id_questao,
