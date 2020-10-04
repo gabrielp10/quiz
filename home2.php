@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['usuario'])){
-  header('location:login.php');
+  header('location:login.php?login=erro2');
 }
 
 //Conexão com o banco
