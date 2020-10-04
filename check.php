@@ -1,12 +1,6 @@
 <?php
-session_start();
-if(!isset($_SESSION['usuario'])){
-  header('location:login.php?login=erro2');
-}
 
-//Conexão com o banco
-
-include_once  __DIR__ . '/include/conexao.php';
+  require_once "validacao_acesso.php"; 
 
   if(isset($_POST['Enviar'])){
 
