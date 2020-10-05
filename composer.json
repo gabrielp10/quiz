@@ -1,0 +1,20 @@
+{
+    "name": "game/quiz",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Antonio Felix",
+            "email": "antonio.felixjr@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+        "psr-4": {
+            "App\\": "app/",
+            "Src\\": "src/"
+        },
+        "files" : [
+            "src/helpers/helper_routes.php"
+        ]
+    }
+}
