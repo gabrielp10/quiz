@@ -1,11 +1,11 @@
 <?php
 
 use Src\Route as Route;
+
+use App\Model\Usuario;
  
  Route::get('/', function(){
- 
     view('home2', ['title' => 'Inicial']);
- 
 });
  
 Route::get(['set' => '/login', 'as' => 'login'], 'ControllerLogin@index');
