@@ -1,1 +1,5 @@
-Options +Indexes
+RewriteEngine on
+#RewriteCond %{HTTP_HOST} ^fx-vi.site$ [NC,OR] RewriteCond %{HTTP_HOST} ^fx-vi.site$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
+

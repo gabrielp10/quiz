@@ -2,6 +2,12 @@
 
 use Src\Route as Route;
  
+ Route::get('/', function(){
+ 
+    view('home2', ['title' => 'Inicial']);
+ 
+});
+ 
 Route::get(['set' => '/login', 'as' => 'login'], 'ControllerLogin@index');
 
 Route::post(['set' => '/cadastro', 'as' => 'register'], 'ControllerLogin@store');
@@ -25,10 +31,10 @@ Route::get(['set' => '/cliente/{cliente_id}', 'as' => 'clientes.edit'], function
  
 });
 
-Route::get('/teste2', function() use($router){
+//Route::get('/teste2', function() use($router){
  
-    echo '<a href="' . Route::translate('clientes.edit', 1) . '">Clique aqui para testar a rota clientes.edit</a>';
+//    echo '<a href="' . Route::translate('clientes.edit', 1) . '">Clique aqui para testar a rota clientes.edit</a>';
  
-});
+//});
 
 Route::get('/contatos/store', "Controller@store");
