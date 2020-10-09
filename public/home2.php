@@ -1,32 +1,20 @@
-<?php
-session_start();
-if(!isset($_SESSION['usuario'])){
-  header('location:login.php');
-}
-
-//Conexão com o banco
-
-include_once  __DIR__ . '/../include/conexao.php';
-
-mysqli_select_db($con, 'quizdb');
-
-?>
+<?php require_once "validacao_acesso.php"; ?>
 
 <!DOCTYPE html>
 <html>
 <head>
   <title></title>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="assets/js/bootstrap.min.js"></script></head>
+  <script src="js/bootstrap.min.js"></script></head>
 
 </head>
 
 <body>
 
-  <?php include_once "navbar.php"; ?>
+  <?php include_once("./navbar.php") ?>
 
 
 <div class="container"> <!-- Início container -->

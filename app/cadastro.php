@@ -19,7 +19,7 @@ $num = mysqli_num_rows($resultado);
 // Check dos dados de cadastro
 
 if($num == 1){
-  echo"Usuário $nome já existente";
+  echo "Usuário $nome já existente";
 }
 
 else{

@@ -23,7 +23,7 @@ if($num == 1){
   header('location:home2.php');
 
 }else{
-  header('location:login.php');
+  header('location: login.php?login=erro');
 }
 
 ?>
