@@ -1,7 +1,8 @@
+<?php require_once "../app/config.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?= $data['title'] ?></title>
+  <title><?=TITLE?> - Index</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -20,7 +21,7 @@
           <div class="card">
           <h2 class="text-center card-header"> Login </h2>
 
-          <form action="../src/validacao.php" method="post">
+          <form action=<?=URL . "/validacao.php"?> method="post">
 
             <div class="form-group">
               <label> Usuário: </label>
@@ -62,6 +63,9 @@
       </div>
 
     </div> <!-- Fim container -->
+</div>
+
+<?php include_once "footer.php" ?>
 
 </body>
 </html>
