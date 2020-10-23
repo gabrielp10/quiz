@@ -1,10 +1,12 @@
 <?php
+require_once "config.php";
 
 session_start();
 
 //Conexão com o banco
 
-include_once  __DIR__ . '/include/conexao.php';
+include_once  URL . '/include/conexao.php';
+
 
 $nome = $_POST['usuario'];
 $senha = $_POST['senha'];
@@ -20,7 +22,7 @@ $num = mysqli_num_rows($resultado);
 if($num == 1){
 
   $_SESSION['usuario'] = $nome;
-  header('location:home2.php');
+  header('location:' URL '/public/home2.php');
 
 }else{
   header('location: login.php?login=erro');
