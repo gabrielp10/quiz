@@ -21,7 +21,7 @@
           <div class="card">
           <h2 class="text-center card-header"> Login </h2>
 
-          <form action=<?=URL . "/validacao.php"?> method="post">
+          <form action=<?="../app/validacao.php"?> method="post">
 
             <div class="form-group">
               <label> Usuário: </label>

@@ -25,7 +25,7 @@ if($num == 1){
   header('location:' . URL . '/public/home2.php');
 
 }else{
-  header('location: login.php?login=erro');
+  header('location:' . URL . 'login.php?login=erro');
 }
 
 ?>
