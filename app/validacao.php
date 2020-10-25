@@ -4,7 +4,7 @@ require_once "config.php";
 session_start();
 
 //Conexão com o banco
-
+include_once  'config.php';
 include_once  URL . '/include/conexao.php';
 
 
