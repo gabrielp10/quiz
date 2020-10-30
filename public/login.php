@@ -1,3 +1,6 @@
+<?php
+  $message = getMessage('login');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +16,11 @@
 <?php include_once "navbar.php" ?>
 
   <div class="container"> <!-- Inicio container -->
+    <?php if (!is_null($message)): ?>
+      <div class="alert alert-<?= $message['type'] ?>">
+        <?= $message['text'] ?>
+      </div>
+    <?php endif ?>
     <h1 class="display-4 text-center card-header"> Bem  vindo ao Quiz! <h1> <br>
 
     <div class="row"> <!-- Login -->

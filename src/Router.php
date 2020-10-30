@@ -106,7 +106,7 @@ class Router
     public function resolve($request){
         
         $route = $this->find($request->method(), $request->uri());
-    
+
         if($route)
         {
             
