@@ -10,6 +10,8 @@ use App\Model\Usuario;
  
 Route::get(['set' => '/login', 'as' => 'login'], 'ControllerLogin@index');
 
+Route::post(['set' => '/login', 'as' => 'login'], 'ControllerLogin@login');
+
 Route::post(['set' => '/cadastro', 'as' => 'register'], 'ControllerLogin@store');
  
 Route::get('/teste/{teste}', function($teste){

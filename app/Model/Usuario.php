@@ -19,4 +19,12 @@ class Usuario extends Model
         return $this->conexao->execute()->fetch(\PDO::FETCH_OBJ);
     }
 
+    public function checkLogin($name, $pasword) 
+    {
+        $sql = "SELECT * FROM usuarios WHERE username = '$name' AND password = '$pasword';";
+
+        $this->conexao->query($sql);
+        return $this->conexao->execute()->fetch(\PDO::FETCH_OBJ);
+    }
+
 }

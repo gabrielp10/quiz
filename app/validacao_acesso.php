@@ -6,8 +6,7 @@ if(!isset($_SESSION['usuario'])){
 
 //Conexão com o banco
 
-include_once  URL . '/include/conexao.php';
-
-mysqli_select_db($con, 'quizdb');
+include_once  APP . '/include/conexao.php';
+//mysqli_select_db($con, 'quizdb');
 
 ?>

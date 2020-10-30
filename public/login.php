@@ -30,7 +30,7 @@
           <div class="card">
           <h2 class="text-center card-header"> Login </h2>
 
-          <form action=<?="../app/validacao.php"?> method="post">
+          <form action=<?= $data['routeLogin'] ?> method="post">
 
             <div class="form-group">
               <label> Usuário: </label>
@@ -53,7 +53,7 @@
           <div class="card">
             <h2 class="text-center card-header"> Cadastrar </h2>
 
-            <form action="<?= $data['routeRegister']?>" method="post">
+            <form action="<?= $data['routeRegister'] ?>" method="post">
 
               <div class="form-group">
                 <label> Usuário: </label>

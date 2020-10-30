@@ -49,8 +49,6 @@ class ControllerLogin
             ]
         );
 
-
-
         if ($save) {
             $data = "Usuário criado com sucesso!";
 
@@ -64,5 +62,32 @@ class ControllerLogin
         message('login', $data);
 
         return redirect(route('login'));
+    }
+
+    public function login() 
+    {
+        $request = request()->all();
+
+        if (empty($request['usuario']) || empty($request['senha'])) {
+            $data = "Campos obrigatórios não foram enviados.";
+
+            message('login', $data);
+            return redirect(route('login'));
+        }
+
+        $usuario = new Usuario();
+
+        $userExist = $usuario->checkLogin($request['usuario'], $request['senha']);
+
+        if (!$userExist) {
+            $data = "Usuário inválido.";
+
+            message('login', $data);
+            return redirect(route('login'));
+        }
+
+        $_SESSION['usuario'] = $userExist->username;
+
+        return redirect('/');
     }
 }
