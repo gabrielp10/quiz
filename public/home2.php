@@ -1,5 +1,4 @@
 <?php require_once "../app/config.php"; ?>
-
 <?php require_once APP . "/validacao_acesso.php"; ?>
 
 <!DOCTYPE html>
