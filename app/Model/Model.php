@@ -4,11 +4,11 @@ namespace App\Model;
 
 use App\Model\Conexao;
 
-
 class Model
 {
     protected $table;
     protected $conexao;
+    protected $fetchType = \PDO::FETCH_ASSOC;
 
     public function __construct()
     {
@@ -20,7 +20,12 @@ class Model
     {
         $sql = "SELECT * FROM $this->table;";
 
-        return $this->conexao->con->query($sql)->fetchAll();
+        return $this->conexao->con->query($sql)->fetchAll($this->fetchType);
+    }
+
+    public function fetchType($fetchType)
+    {
+        $this->fetchType = $fetchType;
     }
 
     public function save($data)

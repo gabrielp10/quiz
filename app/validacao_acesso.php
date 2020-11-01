@@ -1,7 +1,12 @@
 <?php require_once "config.php"; 
-session_start();
+
+
+if (empty($_SESSION)) {
+  session_start();
+}
+
 if(!isset($_SESSION['usuario'])){
-  header('location:'. URL .  '/public/login.php');
+  header('location:'. URL .  '/login');
 }
 
 //Conexão com o banco
