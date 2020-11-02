@@ -130,3 +130,88 @@ VALUES
 );
 
 
+
+INSERT INTO `quizdb`.`questionarios`
+(
+  `img`,
+  `nome`,
+  `descricao`,
+  `fk_usuario`)
+VALUES
+(
+  'python-logo.png',
+  'Python - Básico',
+  'Python básico para iniciantes.',
+  1
+);
+
+INSERT INTO `quizdb`.`questoes`
+(
+`descricao`,
+`alternativa_a`,
+`alternativa_b`,
+`alternativa_c`,
+`alternativa_d`,
+`alternativa_e`,
+`fk_questionarios`,
+`resposta`
+)
+VALUES
+(
+'Qual é a sintaxe correta para ter a saida "Hello World"?',
+'print("Hello World")',
+'echo("Hello World");',
+'p("Hello World")',
+'echo "Hello World"',
+'Nenhuma das alternativas',
+ 3,
+'A'
+),
+(
+'Como você inseri COMENTÁRIOS em códigos Python?',
+'/*Esse é um comentário*/',
+'//Esse é um comentário',
+'#Esse é um comentário',
+'--Esse é um comentário',
+'&lt;!-- Esse é um comentário --&gt;',
+ 3,
+'C'
+),
+(
+'Qual deles NÃO é um nome de variável válido?',
+'minha_variavel',
+'minha-variavel',
+'_minhavariavel',
+'minhaVariavel',
+'Minhavariavel',
+ 3,
+'B'
+),
+(
+'Qual é a extensão de arquivo correta para arquivos Python?',
+'.pyt',
+'.pyth',
+'.snake',
+'.pt',
+'.py',
+ 3,
+'E'
+),
+(
+'Qual é a maneira correta de criar uma função em Python?',
+'create minhaFunction()',
+'function minhaFunction()',
+'def minhaFunction()',
+'public void minhaFunction()',
+'fn minhaFunction()',
+ 3,
+'C'
+)
+;
+
+-- UPDATES
+
+UPDATE questionarios SET img = 'php-logo.png' WHERE id = 1;
+
+UPDATE questionarios set img = 'bash-logo.jpg' WHERE id = 2;
+

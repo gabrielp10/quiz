@@ -4,108 +4,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title><?= $data['title'] ?></title>
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="js/bootstrap.min.js"></script></head>
+  <script src="/public/assets/js/bootstrap.min.js"></script></head>
 
 </head>
 
 <body>
 
-<?php include_once("./navbar.php") ?>
+  <?php include_once("./navbar.php") ?>
+
 
 <div class="container"> <!-- Início container -->
 
 
-  <div class="card">
+  <section class="jumbotron text-center">
+      <div class="container">
+        <h1>Bem vindo ao Quiz, <?php echo $_SESSION['usuario']; ?></h1>
+        <p class="lead text-muted">Selecione um quiz para iniciar .</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Resultados Anteriores</a>
+          <a href="#" class="btn btn-secondary my-2">Ranking Geral</a>
+        </p>
+      </div>
+    </section><br>
 
-    <h3 class="text-center card-header"> Bem-vindo <?php echo $_SESSION['usuario'] ?>, Selecione uma das alternativas. Boa sorte!</h3>
+  <div class="album py-5 bg-light">
+      <div class="container">
 
-  </div><br>
+        <div class="row">
 
-  <form action="check.php" method="post">
+        <?php foreach($data['quizzes'] as $quiz): ?>
 
-  <?php
-
-  //Looping perguntas
-
-  $q = "SELECT
-          q.nome AS questionario_titulo,
-          qt.descricao AS pergunta,
-          qt.id AS id_questao,
-          qt.alternativa_a,
-          qt.alternativa_b,
-          qt.alternativa_c,
-          qt.alternativa_d,
-          qt.alternativa_e
-        FROM questionarios q
-        INNER JOIN questoes qt ON qt.fk_questionarios = q.id";
-  $query = mysqli_query($con, $q);
-
-  while($rows = mysqli_fetch_array($query) ){
-    ?>
-
-    <div class="card">
-      <h4 class="card-header"> <?php echo $rows['pergunta'] ?> </h4>
-
-          <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="A">
-              <?php echo $rows['alternativa_a'] ; ?>
+          <div class="col-md-4">
+            <h5><?= $quiz['nome'] ?></h5>
+            <div class="card mb-4 shadow-sm">
+            <?php if (empty($quiz['img'])): ?>
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><rect width="100%" height="100%" fill="#79999c"></rect></svg>
+            <?php else: ?>
+              <img src="<?= "/public/assets/img/{$quiz['img']}" ?>" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
+            <?php endif; ?>
+              <div class="card-body">
+                <p class="card-text"><?= $quiz['descricao'] ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <a type="button" href="<?= "$data[routeQuiz]/$quiz[id]" ?>" class="btn btn-sm btn-outline-secondary">Iniciar</a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="B">
-              <?php echo $rows['alternativa_b'] ; ?>
-          </div>
+        <?php endforeach ?>
 
-          <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="C">
-              <?php echo $rows['alternativa_c'] ; ?>
-          </div>
+        </div>
 
-          <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="D">
-              <?php echo $rows['alternativa_d'] ; ?>
-          </div>
-
-          <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $rows['id_questao'] ?>]" value="E">
-              <?php echo $rows['alternativa_e'] ; ?>
-          </div>
-<?php
-  }
-?>
-
-  <!-- Botões de submit - Logout -->
-
-  <!-- Submit -->
-
-  <div class="text-center">
-    <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
-  </div>
-
-</form> <br><br>
-
+      </div>
+    </div>
 </div>
 
-  <!-- Logout -->
-  <div class="d-flex justify-content-center mt-3">
-    <a href="logout.php" class="btn btn-warning btn-lg mb-3 "> Logout </a>
-  </div>
-
-  <!-- Footer -->
-
-
-  <div>
-      <h5 class="text-center"> Quiz Linux - Gabriel Tito e Antônio Felix - 2020  </h5>
-  </div>
-
-
-</div>
-
-
-<body>
+</body>
 </html>

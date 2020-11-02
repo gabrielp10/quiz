@@ -9,12 +9,13 @@ class Conexao
     private $user = 'root';
     private $password = '12@Teste';
     private $database = 'quizdb';
+    private $encoding = 'utf8';
     private $stmt;
     public $con;
 
     public function __construct()
     {
-        $dsn = "$this->db:dbname=$this->database;host=$this->host";
+        $dsn = "$this->db:dbname=$this->database;host=$this->host;charset=$this->encoding";
         $opcoes = [
             \PDO::ATTR_PERSISTENT => true,
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION

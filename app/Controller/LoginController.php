@@ -6,7 +6,7 @@ use Src\Route;
 use Src\Request;
 use App\Model\Usuario;
 
-class ControllerLogin
+class LoginController
 {
     public function index() 
     {
@@ -89,5 +89,11 @@ class ControllerLogin
         $_SESSION['usuario'] = $userExist->username;
 
         return redirect('/');
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        redirect(route('login'));
     }
 }
