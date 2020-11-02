@@ -1,5 +1,7 @@
+<IfModule mod_rewrite.c>
 RewriteEngine on
 #RewriteCond %{HTTP_HOST} ^fx-vi.site$ [NC,OR] RewriteCond %{HTTP_HOST} ^fx-vi.site$
 RewriteCond %{REQUEST_URI} !public/
-RewriteRule (.*) /public/$1 [L]
+RewriteRule (.*) public/$1 [L]
+</IfModule>
 
