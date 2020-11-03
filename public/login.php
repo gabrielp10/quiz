@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><?=TITLE?> - Index</title>
+  <title><?=$data['title']?></title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -71,10 +71,9 @@
         </div>
       </div>
 
-    </div> <!-- Fim container -->
+  </div> <!-- Fim container -->
 </div>
 
 <?php include_once "footer.php" ?>
-
 </body>
 </html>

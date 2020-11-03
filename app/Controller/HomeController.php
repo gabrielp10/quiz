@@ -22,7 +22,9 @@ class HomeController
         $data = [
             "title" => "Quiz - Home",
             "routeQuiz" => route('quiz'),
-            "quizzes" => $quizzes
+            "quizzes" => $quizzes,
+            "routeLogout" =>  route('logout')
+
         ];
         
         return view('home', $data);

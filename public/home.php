@@ -1,5 +1,7 @@
-<?php require_once "../app/config.php"; ?>
-<?php require_once APP . "/validacao_acesso.php"; ?>
+<?php require_once "../app/config.php"; 
+require_once APP . "/validacao_acesso.php"; 
+use App\Controller;
+?>
 
 <!DOCTYPE html>
 <html>
@@ -61,8 +63,17 @@
         </div>
 
       </div>
+
+          
+    <!--Logout-->
+    <div class="d-flex justify-content-center mt-3">
+      <a href="<?= $data['routeLogout'] ?>" class="btn btn-warning btn-lg mb-3 "> Logout </a>
+     </div>
     </div>
+
 </div>
+
+<?php include_once "footer.php" ?>
 
 </body>
 </html>

@@ -70,24 +70,24 @@
     <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
   </div>
 
-</form> <br><br>
-
-</div>
-
-  <!-- Logout -->
-  <div class="d-flex justify-content-center mt-3">
+    <!-- Logout -->
+    <div class="d-flex justify-content-center mt-3">
     <a href="<?= $data['routeLogout'] ?>" class="btn btn-warning btn-lg mb-3 "> Logout </a>
   </div>
 
-  <!-- Footer -->
+</form> <br><br>
 
-
-  <div>
-      <h5 class="text-center"> Quiz Linux - Gabriel Tito e Antônio Felix - 2020  </h5>
-  </div>
 
 
 </div>
+
+
+
+
+
+</div>
+
+<?php include_once "footer.php" ?>
 
 
 <body>
