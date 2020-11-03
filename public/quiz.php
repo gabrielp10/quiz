@@ -5,11 +5,14 @@
 <html>
 <head>
   <title><?= $data['title'] ?></title>
+  <title><?=$data['title']?></title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="/public/assets/css/estilo.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <!-- Latest compiled and minified JavaScript -->
-  <script src="/public/assets//js/bootstrap.min.js"></script></head>
+  <script src="/public/assets/js/bootstrap.min.js"></script></head>
+  <script src="/public/assets/js/main.js"></script></head>
 
 </head>
 
@@ -70,10 +73,6 @@
     <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
   </div>
 
-    <!-- Logout -->
-    <div class="d-flex justify-content-center mt-3">
-    <a href="<?= $data['routeLogout'] ?>" class="btn btn-warning btn-lg mb-3 "> Logout </a>
-  </div>
 
 </form> <br><br>
 

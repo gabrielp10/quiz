@@ -1,12 +1,22 @@
 .footer-copyright a {
-    color: #FFFFFF;
+    color: #adacdd;
     text-decoration: none;
 }
 
 .footer-copyright a:hover {
-    color: #000000;
+    color: #FFFFFF;
     text-decoration: none;
 }
+
+.page-footer{
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background: black;
+  opacity: 0.3;
+}
+
+
 
 /* Reveal */
 .hvr-reveal {
@@ -41,3 +51,199 @@
     transform: translateY(0);
     border-width: 4px;
   }
+
+
+
+
+
+
+
+
+
+
+
+/*Formulario*/
+
+.cor-topo{
+	background: linear-gradient(90deg, #fffb01, #3066ca, #fffb01, #0c1cb1);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+
+.cor-fundo{
+  background: rgb(243,255,182);
+  background: linear-gradient(63deg, rgba(243,255,182,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,1) 65%, rgba(6,10,242,1) 100%);
+}
+
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .Cadastro{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .Login{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 10px 0;
+}
+
+.input100 {
+  font-family: Ubuntu-Regular;
+  font-size: 20px;
+  color: #555555;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  padding: 0 60px 0 40px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/*---------------------------------------------*/ 
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #d41872;
+  background: -webkit-linear-gradient(left, #a445b2, #d41872, #fa4299);
+  background: -o-linear-gradient(left, #a445b2, #d41872, #fa4299);
+  background: -moz-linear-gradient(left, #a445b2, #d41872, #fa4299);
+  background: linear-gradient(left, #a445b2, #d41872, #fa4299);
+}
+
+.focus-input100::after {
+  font-family: Linearicons-Free;
+  font-size: 18px;
+  color: #999999;
+
+  /*content: attr(data-placeholder);*/
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+ 
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input100:focus {
+  padding-left: 60px;
+}
+
+.input100:focus + .focus-input100::after {
+  left: 23px;
+  color: #d41872;
+}
+
+.input100:focus + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-input100::after {
+  left: 23px;
+  color: #d41872;
+}
+
+.has-val.input100 + .focus-input100::before {
+  width: 100%;
+}
+
+.has-val.input100 {
+  padding-left: 60px;
+}

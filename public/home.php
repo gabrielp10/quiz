@@ -46,7 +46,7 @@ use App\Controller;
             <?php if (empty($quiz['img'])): ?>
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><rect width="100%" height="100%" fill="#79999c"></rect></svg>
               <?php else: ?>
-              <img class="card-img-top mt-1" src="<?="/public/assets/img/{$quiz['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
+              <img class="card-img-top mt-2" src="<?="/public/assets/img/{$quiz['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
               <?php endif;?>
               <a>
                 <div class="mask rgba-white-slight"></div>
@@ -65,8 +65,8 @@ use App\Controller;
 
             </div>
 
-            <div class="row justify-content-end">
-                <a class="btn btn-indigo btn-rounded btn-md btn-outline-secondary mb-1 mr-1" href="<?= "$data[routeQuiz]/$quiz[id]" ?>">Iniciar</a>
+            <div class="row justify-content-end ">
+                <a class="btn btn-indigo btn-rounded btn-md btn-outline-secondary col m-2" href="<?= "$data[routeQuiz]/$quiz[id]" ?>">Iniciar</a>
             </div>
           </div>
           <!-- Fim Card -->
@@ -76,14 +76,11 @@ use App\Controller;
       </div>
 
           
-    <!--Logout-->
-    <div class="d-flex justify-content-center mb-1">
-      <a href="<?= $data['routeLogout'] ?>" class="btn btn-warning btn-lg mb-3 "> Logout </a>
-     </div>
-    </div>
+
     
   </div>                
-
   <?php include_once "footer.php" ?>
+
 </body>
+
 </html>
