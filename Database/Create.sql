@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`usuarios` (
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(32) NOT NULL,
   `create_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`questionarios` (
   `descricao` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   `fk_usuario` INT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) VISIBLE,
-  INDEX `fk_usuarios_questionarios_idx` (`fk_usuario` ASC) VISIBLE,
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) ,
+  INDEX `fk_usuarios_questionarios_idx` (`fk_usuario` ASC) ,
   CONSTRAINT `fk_usuarios_questionarios`
     FOREIGN KEY (`fk_usuario`)
     REFERENCES `quizdb`.`usuarios` (`id`)
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`questoes` (
   `fk_questionarios` INT NOT NULL,
   `resposta` ENUM("A", "B", "C", "D", "E") NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_questoes_questionarios_idx` (`fk_questionarios` ASC) VISIBLE,
+  INDEX `fk_questoes_questionarios_idx` (`fk_questionarios` ASC) ,
   CONSTRAINT `fk_questoes_questionarios`
     FOREIGN KEY (`fk_questionarios`)
     REFERENCES `quizdb`.`questionarios` (`id`)

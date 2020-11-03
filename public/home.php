@@ -32,35 +32,53 @@ use App\Controller;
           <a href="#" class="btn btn-secondary my-2">Ranking Geral</a>
         </p>
       </div>
-    </section><br>
+  </section><br>
 
-  <div class="album py-5 bg-light">
       <div class="container">
 
         <div class="row">
 
         <?php foreach($data['quizzes'] as $quiz): ?>
 
-          <div class="col-md-4">
-            <h5><?= $quiz['nome'] ?></h5>
-            <div class="card mb-4 shadow-sm">
+
+
+          <!-- Inicio Card-->
+          <div class="card col-md-6 col-sm-6 col-lg-3 mb-1">
+            <!-- Imagem -->
+            <div class="view overlay">
             <?php if (empty($quiz['img'])): ?>
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><rect width="100%" height="100%" fill="#79999c"></rect></svg>
-            <?php else: ?>
-              <img src="<?= "/public/assets/img/{$quiz['img']}" ?>" class="bd-placeholder-img card-img-top" width="100%" height="225"/>
-            <?php endif; ?>
-              <div class="card-body">
-                <p class="card-text"><?= $quiz['descricao'] ?></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a type="button" href="<?= "$data[routeQuiz]/$quiz[id]" ?>" class="btn btn-sm btn-outline-secondary">Iniciar</a>
-                </div>
-              </div>
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><rect width="100%" height="100%" fill="#79999c"></rect></svg>
+              <?php else: ?>
+              <img class="card-img-top" src="<?="/public/assets/img/{$quiz['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
+              <?php endif;?>
+              <a>
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+
+            <!-- Conteúdo -->
+            <div class="card-body">
+
+              <!-- Título -->
+              <h5 class="card-title"><?= $quiz['nome'] ?></h5>
+              <hr>
+              <!-- Texto -->
+              <p class="card-text"><?= $quiz['descricao'] ?></p>
+              
+
+            </div>
+
+            <div class="row justify-content-end">
+                <a class="btn btn-indigo btn-rounded btn-md btn-outline-secondary mb-1 mr-1" href="<?= "$data[routeQuiz]/$quiz[id]" ?>">Iniciar</a>
             </div>
           </div>
+          <!-- Fim Card -->
 
         <?php endforeach ?>
 
         </div>
+
+        
 
       </div>
 
