@@ -1,0 +1,9 @@
+.footer-copyright a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-copyright a:hover {
+    color: #000000;
+    text-decoration: none;
+}

@@ -9,7 +9,7 @@ use App\Controller;
   <title><?= $data['title'] ?></title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="/public/assets/css/estilo.css">
   <!-- Latest compiled and minified JavaScript -->
   <script src="/public/assets/js/bootstrap.min.js"></script></head>
 
@@ -43,7 +43,7 @@ use App\Controller;
 
 
           <!-- Inicio Card-->
-          <div class="card col-md-6 col-sm-6 col-lg-3 mb-1">
+          <div class="card col-sm-5 col-lg-3 mb-1">
             <!-- Imagem -->
             <div class="view overlay">
             <?php if (empty($quiz['img'])): ?>
