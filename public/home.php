@@ -20,7 +20,6 @@ use App\Controller;
   <?php include_once("./navbar.php") ?>
 
 
-<div class="container"> <!-- Início container -->
 
 
   <section class="jumbotron text-center">
@@ -34,22 +33,20 @@ use App\Controller;
       </div>
   </section><br>
 
-      <div class="container">
+  <div class="container"> <!-- Início container -->
 
-        <div class="row">
+      <div class="row">
 
         <?php foreach($data['quizzes'] as $quiz): ?>
 
-
-
           <!-- Inicio Card-->
-          <div class="card col-sm-5 col-lg-3 mb-1">
+          <div class="card  hvr-reveal col-md-4 col-sm-5 col-lg-3 mb-2">
             <!-- Imagem -->
             <div class="view overlay">
             <?php if (empty($quiz['img'])): ?>
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><rect width="100%" height="100%" fill="#79999c"></rect></svg>
               <?php else: ?>
-              <img class="card-img-top" src="<?="/public/assets/img/{$quiz['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
+              <img class="card-img-top mt-1" src="<?="/public/assets/img/{$quiz['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
               <?php endif;?>
               <a>
                 <div class="mask rgba-white-slight"></div>
@@ -74,24 +71,19 @@ use App\Controller;
           </div>
           <!-- Fim Card -->
 
-        <?php endforeach ?>
-
-        </div>
-
-        
+        <?php endforeach ?>        
 
       </div>
 
           
     <!--Logout-->
-    <div class="d-flex justify-content-center mt-3">
+    <div class="d-flex justify-content-center mb-1">
       <a href="<?= $data['routeLogout'] ?>" class="btn btn-warning btn-lg mb-3 "> Logout </a>
      </div>
     </div>
+    
+  </div>                
 
-</div>
-
-<?php include_once "footer.php" ?>
-
+  <?php include_once "footer.php" ?>
 </body>
 </html>
