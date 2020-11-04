@@ -25,13 +25,14 @@
           <a class="nav-link" href="/">Home</a>
         </li>
 
- 
-      </div>
-      </ul>
-
-      <span class="nav-item">
+        <span class="nav-item">
           <a href="<?= $data['routeLogout'] ?>" class="nav-link btn  btn-rounded btn-md btn-outline-info"> Logout </a>
       </span>
+ 
+    </div>
+      </ul>
+
+
 
 
 
