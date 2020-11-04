@@ -47,7 +47,7 @@ use App\Controller;
                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225"><rect width="100%" height="100%" fill="#79999c"></rect></svg>
               <?php else: ?>
               <img class="card-img-top mt-2" src="<?="/public/assets/img/{$quiz['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
-              <?php endif;?>
+            <?php endif;?>
               <a>
                 <div class="mask rgba-white-slight"></div>
               </a>

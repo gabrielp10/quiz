@@ -31,8 +31,7 @@ class QuizController
             "title" => "Quiz - {$perguntas[0]['questionario_titulo']}",
             "routeValidate" => route('validate'),
             "routeLogout" => route('logout'),
-            "perguntas" => $perguntas
-        ];
+            "perguntas" => $perguntas        ];
 
         view('quiz', $data);
     }

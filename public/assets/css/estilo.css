@@ -49,7 +49,7 @@
   .hvr-reveal:hover:before, .hvr-reveal:focus:before, .hvr-reveal:active:before {
     -webkit-transform: translateY(0);
     transform: translateY(0);
-    border-width: 4px;
+    border-width: 6px;
   }
 
 
@@ -67,7 +67,7 @@
 .cor-topo{
 	background: linear-gradient(90deg, #fffb01, #3066ca, #fffb01, #0c1cb1);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 100s ease infinite;
 }
 
 
