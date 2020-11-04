@@ -15,6 +15,7 @@ class Questionario extends Model
     {
         $sql = "SELECT
                 q.nome AS questionario_titulo,
+                q.img AS questionario_imagem,
                 qt.descricao AS pergunta,
                 qt.id AS id_questao,
                 qt.alternativa_a,
