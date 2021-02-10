@@ -40,7 +40,7 @@ use App\Controller;
         <?php foreach($data['quizzes'] as $quiz): ?>
 
           <!-- Inicio Card-->
-          <div class="card  hvr-reveal col-md-4 col-sm-5 col-lg-3 mb-2">
+          <div class="card  hvr-reveal col-md-4 col-sm-5 col-lg-3 mb-2 ml-2">
             <!-- Imagem -->
             <div class="view overlay">
             <?php if (empty($quiz['img'])): ?>

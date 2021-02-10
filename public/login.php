@@ -18,9 +18,9 @@
   
 
 
-<body class="cor-fundo">
+<body>
 
-<h1 class="display-4 text-center card-header cor-topo"> Bem  vindo ao Quiz! </h1>  
+<h1 class="display-4 text-center card-header"> Bem  vindo ao Quiz! </h1>  
 
 <div class="container login-container">
         <?php if (!is_null($message)): ?>

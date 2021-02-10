@@ -14,8 +14,8 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark cor-topo mb-3">
-    <a class="navbar-brand" href="#"><i class="far fa-question-circle fa-lg">&nbsp</i>Quiz</a>
+  <nav class="navbar navbar-expand-lg navbar-dark mb-3 bg-dark">
+    <a class="navbar-brand" href="/"><i class="far fa-question-circle fa-lg">&nbsp</i>Quiz</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,13 +24,14 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
-
-        <span class="nav-item">
-          <a href="<?= $data['routeLogout'] ?>" class="nav-link btn  btn-rounded btn-md btn-outline-info"> Logout </a>
-      </span>
- 
-    </div>
       </ul>
+
+        <span class="form-inline nav-item">
+          <a href="<?= $data['routeLogout'] ?>" class="nav-link btn  btn-rounded btn-md btn-outline-info"> Logout </a>
+        </span>
+ 
+      </div>
+    
 
 
 

@@ -17,6 +17,15 @@
 }
 
 
+.footer-fixed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
 
 /* Reveal */
 .hvr-reveal {
@@ -53,28 +62,9 @@
   }
 
 
-
-
-
-
-
-
-
-
-
 /*Formulario*/
 
-.cor-topo{
-	background: linear-gradient(90deg, #fffb01, #3066ca, #fffb01, #0c1cb1);
-	background-size: 400% 400%;
-	animation: gradient 100s ease infinite;
-}
 
-
-.cor-fundo{
-  background: rgb(243,255,182);
-  background: linear-gradient(63deg, rgba(243,255,182,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,1) 65%, rgba(6,10,242,1) 100%);
-}
 
 .login-container{
     margin-top: 5%;

@@ -74,7 +74,7 @@
 
   <!-- Submit -->
 
-  <div class="text-center">
+  <div class="text-center pt-1">
     <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
   </div>
 
