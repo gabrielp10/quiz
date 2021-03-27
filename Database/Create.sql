@@ -69,8 +69,48 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`questoes` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+-- -----------------------------------------------------
+-- Table `quizdb`.`pontuacoes`
+-- -----------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pontuacoes`
+--
+
+CREATE TABLE `pontuacoes` (
+  `id` int(11) NOT NULL,
+  `pontuacao` int(11) DEFAULT NULL,
+  `fk_questao` int(11) DEFAULT NULL,
+  `fk_usuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+ALTER TABLE `pontuacoes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_questao` (`fk_questao`) USING BTREE,
+  ADD KEY `fk_usuario` (`fk_usuario`) USING BTREE;
+
+
+ALTER TABLE `pontuacoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+ALTER TABLE `pontuacoes`
+  ADD CONSTRAINT `pontuacoes_ibfk_1` FOREIGN KEY (`fk_questao`) REFERENCES `questionarios` (`id`),
+  ADD CONSTRAINT `pontuacoes_ibfk_2` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id`);
+COMMIT;
+
+--
+-- Fim pontuacoes
+--
+
+
 USE `quizdb` ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

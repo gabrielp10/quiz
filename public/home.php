@@ -26,9 +26,10 @@ use App\Controller;
       <div class="container">
         <h1>Bem vindo ao Quiz, <?php echo $_SESSION['usuario']; ?></h1>
         <p class="lead text-muted">Selecione um quiz para iniciar .</p>
+        
         <p>
           <a href="#" class="btn btn-primary my-2">Resultados Anteriores</a>
-          <a href="#" class="btn btn-secondary my-2">Ranking Geral</a>
+          <a href="<?= $data['routeRanking']?>" class="btn btn-secondary my-2">Ranking Geral</a>
         </p>
       </div>
   </section><br>

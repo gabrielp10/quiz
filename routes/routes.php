@@ -14,4 +14,7 @@ Route::get(['set' => '/questionario/{id}', 'as' => 'quiz'], 'QuizController@quiz
 
 Route::post(['set' => '/validar-questionario', 'as' => 'validate'], 'QuizController@check');
 
+Route::get(['set' => '/ranking-geral', 'as' => 'ranking'], 'QuizController@ranking');
+
 Route::get(['set' => '/logout', 'as' => 'logout'], 'LoginController@logout');
+

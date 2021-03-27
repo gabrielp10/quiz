@@ -2,15 +2,22 @@
 
 namespace App\Controller;
 
+use Src\Route;
+use Src\Request;
+use App\Model\Ranking;
+
+
 class QuizController
 {
     private $questionario;
     private $questao;
+    private $pontuacao;
 
     public function __construct()
     {
         $this->questionario = new \App\Model\Questionario();
         $this->questao = new \App\Model\Questao();
+        $this->pontuacao = new \App\Model\Ranking();
     }
 
     public function quiz($id) 
@@ -72,5 +79,19 @@ class QuizController
             }
         
           }
+    }
+
+    public function ranking(){
+
+      $pontuacoes = $this->pontuacao->getRanking();
+
+      $data = [
+        "title" => "Quiz - Ranking",
+        "pontuacoes" => $pontuacoes,
+        "routeLogout" => route('logout')
+      ];
+
+      view ('ranking', $data);
+
     }
 }
