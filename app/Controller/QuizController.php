@@ -116,13 +116,31 @@ class QuizController
 
           $pontuacoes = $this->ranking->getRanking();
 
-          $data = [
-            "title" => "Quiz - Ranking",
-            "pontuacoes" => $pontuacoes,
-            "routeLogout" => route('logout')
+          $data = 
+          [
+            'title' => 'Quiz - Ranking',
+            'pontuacoes' => $pontuacoes,
+            'routeLogout' => route('logout')
           ];
 
           view ('ranking', $data);
 
         }
+
+        public function score()
+        {
+
+          $score = $this->ranking->getScore($_SESSION['usuario']);
+
+          $data = 
+          [  
+            'title' => 'Quiz - Pontuações',
+            'score' => $score,
+            'routeLogout' => route('logout')
+          ];
+
+          view ('score', $data);
+        }
+
+
 }

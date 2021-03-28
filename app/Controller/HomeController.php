@@ -23,6 +23,7 @@ class HomeController
             "title" => "Quiz - Home",
             "routeQuiz" => route('quiz'),
             "quizzes" => $quizzes,
+            "routeScore" => route('score'),
             "routeRanking" => route('ranking'),
             "routeLogout" =>  route('logout')
 

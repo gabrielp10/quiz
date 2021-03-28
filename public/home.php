@@ -28,7 +28,7 @@ use App\Controller;
         <p class="lead text-muted">Selecione um quiz para iniciar .</p>
         
         <p>
-          <a href="#" class="btn btn-primary my-2">Resultados Anteriores</a>
+          <a href="<?= $data['routeScore']?>" class="btn btn-primary my-2">Resultados Anteriores</a>
           <a href="<?= $data['routeRanking']?>" class="btn btn-secondary my-2">Ranking Geral</a>
         </p>
       </div>
