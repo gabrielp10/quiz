@@ -74,7 +74,17 @@ class QuizController
                 $i++;
               }
         
-              echo "<br> Seus pontos totais: $resultado de $i";
+              $percentAcertos =  ($resultado / $i) * 100;
+              
+              $data = [
+                'title' => 'Quiz - Resultado',
+                'pontuacao' => $resultado,
+                'totalQuestoes' => $i,
+                'percentAcertos' => $percentAcertos,
+                'routeLogout' => route('logout')
+              ];
+              view ('validate', $data);
+
         
             }
         

@@ -21,4 +21,5 @@ class Questao extends Model
 
         return $this->conexao->execute()->fetchAll($this->fetchType);
     }
+    
 }
