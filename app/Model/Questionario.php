@@ -29,5 +29,7 @@ class Questionario extends Model
 
         $this->conexao->query($sql);
         return $this->conexao->execute()->fetchAll($this->fetchType);
+
+        
     }
 }

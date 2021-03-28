@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\Pontuacao;
+use App\Model\Questionario;
 use Src\Route;
 use Src\Request;
 use App\Model\Ranking;
@@ -11,13 +13,15 @@ class QuizController
 {
     private $questionario;
     private $questao;
+    private $ranking;
     private $pontuacao;
 
     public function __construct()
     {
         $this->questionario = new \App\Model\Questionario();
         $this->questao = new \App\Model\Questao();
-        $this->pontuacao = new \App\Model\Ranking();
+        $this->ranking = new \App\Model\Ranking();
+        $this->pontuacao = new \App\Model\Pontuacao();
     }
 
     public function quiz($id) 
@@ -39,7 +43,7 @@ class QuizController
             "routeValidate" => route('validate'),
             "routeLogout" => route('logout'),
             "img" => $perguntas[0]['questionario_imagem'],
-            "perguntas" => $perguntas
+            "perguntas" => $perguntas,
           ];
 
         view('quiz', $data);
@@ -48,6 +52,7 @@ class QuizController
     public function check()
     {
         $request = request()->all();
+
 
         if(isset($request['Enviar'])){
 
@@ -81,27 +86,43 @@ class QuizController
                 'pontuacao' => $resultado,
                 'totalQuestoes' => $i,
                 'percentAcertos' => $percentAcertos,
+                'idQuestionario' => $resposta['fk_questionarios'],
+                'routePontuacao' => route('validate'),
                 'routeLogout' => route('logout')
               ];
-              view ('validate', $data);
+
+              $pontuacao = new Pontuacao();
+
+              $save = $pontuacao->save(
+                [
+                  'pontuacao' => $resultado,
+                  'fk_questao' => $resposta['fk_questionarios'],
+                  'fk_usuario' => $_SESSION['id']
+
+                ]
+
+                );
+
+              
+              view ('validate', $data); 
 
         
             }
         
           }
-    }
+       }
 
-    public function ranking(){
+        public function ranking(){
 
-      $pontuacoes = $this->pontuacao->getRanking();
+          $pontuacoes = $this->ranking->getRanking();
 
-      $data = [
-        "title" => "Quiz - Ranking",
-        "pontuacoes" => $pontuacoes,
-        "routeLogout" => route('logout')
-      ];
+          $data = [
+            "title" => "Quiz - Ranking",
+            "pontuacoes" => $pontuacoes,
+            "routeLogout" => route('logout')
+          ];
 
-      view ('ranking', $data);
+          view ('ranking', $data);
 
-    }
+        }
 }

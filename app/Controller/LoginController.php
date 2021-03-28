@@ -77,7 +77,7 @@ class LoginController
 
         $usuario = new Usuario();
 
-        $userExist = $usuario->checkLogin($request['usuario'], $request['senha']);
+        $userExist = $usuario->checkLogin($request['usuario'], $request['senha'], $request['id']);
 
         if (!$userExist) {
             $data = "Usuário inválido.";
@@ -87,6 +87,8 @@ class LoginController
         }
 
         $_SESSION['usuario'] = $userExist->username;
+        $_SESSION['id'] = $userExist->id;
+
 
         return redirect('/');
     }

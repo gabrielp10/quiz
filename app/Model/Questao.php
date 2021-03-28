@@ -13,7 +13,7 @@ class Questao extends Model
 
     public function getRespostasPorIds($ids)
     {
-        $sql = "SELECT id, resposta
+        $sql = "SELECT id, resposta, fk_questionarios
                 FROM questoes
                 WHERE id IN ($ids);";
 
@@ -21,5 +21,6 @@ class Questao extends Model
 
         return $this->conexao->execute()->fetchAll($this->fetchType);
     }
+    
     
 }

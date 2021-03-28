@@ -31,9 +31,10 @@
               <?php else: ?>
               <img class="card-img-top mt-2" src="<?="/public/assets/img/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap"/>
             <?php endif;?>
-    <h3 class="text-center card-header font-weight-bold"><?= $data['perguntas'][0]['questionario_titulo'] ?></h3>
+    <h3 class="text-center card-header font-weight-bold" name="idQuestionario[<?=$data['id'] ?>]" <?= $data['perguntas'][0]['questionario_titulo'] ?>> </h3>
 
   </div><br>
+
 
   <form action="<?= $data['routeValidate'] ?>" method="post">
 
@@ -75,7 +76,7 @@
   <!-- Submit -->
 
   <div class="text-center pt-1">
-    <input type="submit" name="Enviar" value="Enviar" class="btn btn-lg btn-primary">
+    <input type="submit" name="Enviar" value="Enviar" href="<?= $data["routeValidate"] ?>" class="btn btn-lg btn-primary">
   </div>
 
 
