@@ -115,10 +115,12 @@ class QuizController
         public function ranking(){
 
           $pontuacoes = $this->ranking->getRanking();
+          $quizzes = $this->questionario->all();
 
           $data = 
           [
             'title' => 'Quiz - Ranking',
+            'quizzes' => $quizzes,
             'pontuacoes' => $pontuacoes,
             'routeLogout' => route('logout')
           ];

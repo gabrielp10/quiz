@@ -15,6 +15,19 @@
 
 <?php include_once("./navbar.php") ?>
 
+
+<div class=" btn-group">
+  <button type="button" class="ml-2 btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Selecione um quiz
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+    <?php foreach ($data['quizzes'] as $quiz): ?>
+    <button class="dropdown-item" type="button"><?=$quiz['nome']?></button>
+    <?php endforeach ?>
+  </div>
+</div>
+
+
 <table class="container">
     <tr>
         <th>Usuário</th>
@@ -34,4 +47,4 @@
 </table>
 
 
-<?php include_once "footer.php" ?>
+<?php include_once ("./footer.php") ?>
