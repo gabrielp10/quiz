@@ -82,12 +82,12 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE `pontuacoes` (
   `id` int(11) NOT NULL,
   `pontuacao` int(11) DEFAULT NULL,
+  `feito_em` timestamp NOT NULL DEFAULT current_timestamp(),
   `fk_questao` int(11) DEFAULT NULL,
   `fk_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
---
 ALTER TABLE `pontuacoes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_questao` (`fk_questao`) USING BTREE,

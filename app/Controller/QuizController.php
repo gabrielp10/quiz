@@ -6,21 +6,18 @@ use App\Model\Pontuacao;
 use App\Model\Questionario;
 use Src\Route;
 use Src\Request;
-use App\Model\Ranking;
 
 
 class QuizController
 {
     private $questionario;
     private $questao;
-    private $ranking;
     private $pontuacao;
 
     public function __construct()
     {
         $this->questionario = new \App\Model\Questionario();
         $this->questao = new \App\Model\Questao();
-        $this->ranking = new \App\Model\Ranking();
         $this->pontuacao = new \App\Model\Pontuacao();
     }
 
@@ -114,7 +111,7 @@ class QuizController
 
         public function ranking(){
 
-          $pontuacoes = $this->ranking->getRanking();
+          $pontuacoes = $this->pontuacao->getRanking();
           $quizzes = $this->questionario->all();
 
           $data = 
@@ -132,7 +129,7 @@ class QuizController
         public function score()
         {
 
-          $score = $this->ranking->getScore($_SESSION['usuario']);
+          $score = $this->pontuacao->getScore($_SESSION['usuario']);
 
           $data = 
           [  
