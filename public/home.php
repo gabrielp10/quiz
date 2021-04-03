@@ -21,6 +21,7 @@ use App\Controller;
 
 
 
+  <a class="btn btn-warning mb-3 ml-2" href="<?=$data['routeAdPanel']?>">Painel Administrativo</a>
 
   <section class="jumbotron text-center">
       <div class="container">

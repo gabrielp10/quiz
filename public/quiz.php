@@ -45,27 +45,27 @@
       <h4 class="card-header"> <?php echo $pergunta['pergunta'] ?> </h4>
 
       <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="A">
+          <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="A">
           <?php echo $pergunta['alternativa_a'] ; ?>
       </div>
 
       <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="B">
+          <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="B">
           <?php echo $pergunta['alternativa_b'] ; ?>
       </div>
 
       <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="C">
+          <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="C">
           <?php echo $pergunta['alternativa_c'] ; ?>
       </div>
 
       <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="D">
+          <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="D">
           <?php echo $pergunta['alternativa_d'] ; ?>
       </div>
 
       <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="E">
+          <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="E">
           <?php echo $pergunta['alternativa_e'] ; ?>
       </div>
     </div>

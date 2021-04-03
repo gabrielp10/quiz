@@ -18,4 +18,6 @@ Route::get(['set' => '/ranking-geral', 'as' => 'ranking'], 'QuizController@ranki
 
 Route::get(['set' => '/logout', 'as' => 'logout'], 'LoginController@logout');
 
+Route::get(['set' => '/painel-administrativo', 'as' => 'adpanel'], 'AdminController@check');
+
 Route::get(['set' => '/pontuacoes', 'as' => 'score'], 'QuizController@score');
