@@ -21,3 +21,11 @@ Route::get(['set' => '/logout', 'as' => 'logout'], 'LoginController@logout');
 Route::get(['set' => '/painel-administrativo', 'as' => 'adpanel'], 'AdminController@check');
 
 Route::get(['set' => '/pontuacoes', 'as' => 'score'], 'QuizController@score');
+
+Route::get(['set' => '/novo-quiz', 'as' => 'newQuiz'], 'AdminController@newQuiz');
+
+Route::get(['set' => '/editar-quiz', 'as' => 'editQuiz'], 'AdminController@editQuiz');
+
+Route::get(['set' => '/deletar-quiz', 'as' => 'deleteQuiz'], 'AdminController@deleteQuiz');
+
+
