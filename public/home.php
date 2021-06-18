@@ -1,5 +1,4 @@
-<?php require_once "../app/config.php"; 
-require_once APP . "/validacao_acesso.php"; 
+<?php
 use App\Controller;
 ?>
 
