@@ -7,7 +7,7 @@ class Conexao
     private $db = 'mysql';
     private $host = 'localhost';
     private $user = 'root';
-    private $password = 'toor';
+    private $password = '';
     private $database = 'quizdb';
     private $encoding = 'utf8';
     private $stmt;
