@@ -138,8 +138,6 @@ class QuizController
             'routeLogout' => route('logout')
           ];
 
-          
-
           view ('score', $data);
         }
 
