@@ -24,9 +24,9 @@
             <a class="nav-link" href="/">Home</a>
           </li>
         </ul>
-          <span id="painelAdmin" class="form-inline  my-2 my-lg-0">
+          <span class="form-inline  my-2 my-lg-0">
             <a class="btn-rounded btn btn-md btn-outline-warning mr-3" 
-            <?= !isset($data['routeAdPanel']) ? 'hidden' : "href=\"" . $data['routeAdPanel'] . "\""?> >Painel Administrativo</a>
+            <?= !isset($data['routeAdPanel']) ? 'hidden' : "href=\"" . $data['routeAdPanel'] . "\" >Painel Administrativo</a> "?>
           </span>
           <span>
             <a <?= $_SERVER['REQUEST_URI'] == '/login' ? 'hidden' : "href=\"" . $data['routeLogout'] . "\"" ?> class=" btn btn-rounded btn-md btn-outline-info"> Logout </a>
