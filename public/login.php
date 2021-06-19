@@ -14,7 +14,7 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="/public/assets/js/bootstrap.min.js"></script></head>
   <script src="/public/assets/js/main.js"></script></head>
-  
+</head>
 
 
 <body>

@@ -1,50 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><?= $data['title'] ?></title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/public/assets/css/estilo.css">
-  <link rel="stylesheet" href="/public/assets/js/main.js">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="/public/assets/js/bootstrap.min.js"></script></head>
+  <head>
+    <?php include_once("./navbar.php") ?>
+  </head>
+  <body>
+    <form id="selecionaQuiz" class="btn-group">
+      <button type="button" class="ml-2 btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Selecione um quiz
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" onchange="selecionaQuiz()">
+        <?php foreach ($data['quizzes'] as $quiz): ?>
+        <button class="dropdown-item" value="<?=$quiz['id']?>" type="button"><?=$quiz['nome']?></button>
+        <?php endforeach ?>
+      </div>
+    </form>
+    <div class="container">
+      <table class="table table-striped text-center border font-weight-bold">
+          <tr>
+              <th>Usuário</th>
+              <th>Quiz</th>
+              <th>Feito em</th>
+              <th>Pontuação</th>
+          </tr>
 
-</head>
+          <?php foreach ($data['pontuacoes'] as $pontuacao): ?>
 
-<?php include_once("./navbar.php") ?>
-
-
-<form id="selecionaQuiz" class="btn-group">
-  <button type="button" class="ml-2 btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Selecione um quiz
-  </button>
-  <div class="dropdown-menu dropdown-menu-right" onchange="selecionaQuiz()">
-    <?php foreach ($data['quizzes'] as $quiz): ?>
-    <button class="dropdown-item" value="<?=$quiz['id']?>" type="button"><?=$quiz['nome']?></button>
-    <?php endforeach ?>
-  </div>
-</form>
-
-
-<table class="container text-center border">
-    <tr>
-        <th>Usuário</th>
-        <th>Quiz</th>
-        <th>Feita em</th>
-        <th>Pontuação</th>
-    </tr>
-
-    <?php foreach ($data['pontuacoes'] as $pontuacao) { ?>
-
-        <tr>
-            <td><?= $pontuacao["nome_usuario"] . '  ' ?></td>
-            <td><?= $pontuacao["nome_questionario"]?></td>
-            <td><?=$pontuacao["feito_em"]?></td>
-            <td><?= $pontuacao["pontuacao"]?></td>
-        <tr>
-    <?php } ?>
-    
-</table>
-
+              <tr class="mouseColor">
+                  <td><?= $pontuacao["nome_usuario"] . '  ' ?></td>
+                  <td><?= $pontuacao["nome_questionario"]?></td>
+                  <td><?= DateTime::createFromFormat('Y-m-d H:i:s', $pontuacao["feito_em"])->format('d-m-Y')?></td>
+                  <td><?= $pontuacao["pontuacao"]?></td>
+              <tr>
+          <?php endforeach; ?>
+      </table>
+    </div>
+  </body>
+</html>
 
 <?php include_once ("./footer.php") ?>

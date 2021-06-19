@@ -17,14 +17,6 @@ class HomeController
 
     public function index() 
     {
-
-        if($_SESSION['tipo_usuario'] !== '1')
-        {
-            $adpanel = '';
-        } else {
-            $adpanel = route('adpanel');
-        }
-
         $quizzes = $this->questionario->all();
 
         $data = [
@@ -33,11 +25,16 @@ class HomeController
             "quizzes" => $quizzes,
             "routeScore" => route('score'),
             "routeRanking" => route('ranking'),
-            "routeAdPanel" => $adpanel,
             "routeLogout" =>  route('logout')
 
         ];
         
+        if($_SESSION['tipo_usuario'] == '1')
+        {
+            $adpanel = route('adpanel');
+            $data["routeAdPanel"] = $adpanel;
+        }
+
         return view('home', $data);
     }
 

@@ -1,3 +1,11 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+}
+
 .footer-copyright a {
     color: #adacdd;
     text-decoration: none;
@@ -11,23 +19,15 @@
 .page-footer{
   position: absolute;
   bottom: 0;
+  width: 100%;
   color: white;
   background: black;
   opacity: 0.3;
-}
-
-
-.footer-fixed {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
+  height: 60px;
   text-align: center;
 }
 
-/* Reveal */
+/* Reveal cards quiz */
 .hvr-reveal {
     display: inline-block;
     vertical-align: middle;
@@ -237,3 +237,9 @@
 .has-val.input100 {
   padding-left: 60px;
 }
+
+.mouseColor:hover{
+  background-color: rgb(54, 147, 200);
+  color: white
+}
+

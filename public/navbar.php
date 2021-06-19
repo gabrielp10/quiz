@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title><?= $data['title'] ?></title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/public/assets/css/estilo.css">
   <script src="/public/assets/js/jquery-3.5.1.slim.min.js"></script>
   <script src="/public/assets/js/popper.min.js"></script>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <!-- Latest compiled and minified JavaScript -->
   <script src="/public/assets/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
@@ -24,25 +24,15 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
-        <li class="nav-item">
-
-        </li>
       </ul>
-
-        <span class="form-inline nav-item">
-          <a href="<?= $data['routeLogout'] ?>" class="nav-link btn  btn-rounded btn-md btn-outline-info"> Logout </a>
+        <span id="painelAdmin" class="form-inline  my-2 my-lg-0">
+          <a class="btn-rounded btn btn-md btn-outline-warning mr-3" 
+          <?= !isset($data['routeAdPanel']) ? 'hidden' : "href=\"" . $data['routeAdPanel'] . "\""?> >Painel Administrativo</a>
         </span>
- 
-      </div>
-    
-
-
-
-
-
+        <span>
+          <a href="<?= $data['routeLogout'] ?>" class=" btn btn-rounded btn-md btn-outline-info"> Logout </a>
+        </span>
     </div>
-
-
   </nav>
 
 <body>

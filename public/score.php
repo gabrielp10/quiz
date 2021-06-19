@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><?= $data['title'] ?></title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/public/assets/css/estilo.css">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="/public/assets/js/bootstrap.min.js"></script></head>
-
-</head>
-
-<?php include_once("./navbar.php") ?>
-
-<table class="container">
-    <tr>
-        <th>Quiz</th>
-        <th>Pontuação</th>
-    </tr>
-
-    <?php foreach ($data['score'] as $score) { ?>
-
+  <head>
+      <?php include_once("./navbar.php") ?>
+  </head>
+  <body>
+    <div class="container">
+      <table class="table table-striped text-center border font-weight-bold">
         <tr>
-            <td><?= $score["nome_questionario"]?></td>
+            <th>Quiz</th>
+            <th>Pontuação</th>
+        </tr>
+
+        <?php foreach ($data['score'] as $score): ?>
+
+        <tr class="mouseColor">
+            <td ><?= $score["nome_questionario"]?></td>
             <td><?= $score["pontuacao"]?></td>
         <tr>
-    <?php } ?>
-    
-</table>
 
+        <?php endforeach; ?>      
+      </table>
+    </div>
+    <?php include_once "footer.php" ?>
+  </body>
+</html>
 
-<?php include_once "footer.php" ?>
