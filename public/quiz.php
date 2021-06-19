@@ -15,9 +15,11 @@
   </div>
 
   <form action="<?= $data['routeValidate'] ?>" method="post">
-    <?php foreach ($data['perguntas'] as $pergunta) : ?>
+    <?php $nQuestao = 0;
+      foreach ($data['perguntas'] as $pergunta) : 
+      $nQuestao += 1?>
 
-      <div class="card">
+      <div id="shuffle<?=$nQuestao?>" class="card">
         <h4 class="card-header text-center"> <?=$pergunta['pergunta'] ?> </h4>
 
         <div class="card-body">
@@ -44,6 +46,9 @@
           <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="E">
           <?=$pergunta['alternativa_e'];?>
         </div>
+        <script>
+          shuffle(<?=$nQuestao?>);
+      </script>
       </div>
     <?php endforeach;?>
 
