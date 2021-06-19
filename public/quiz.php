@@ -23,36 +23,36 @@
         <?php foreach ($data['perguntas'] as $pergunta) : ?>
 
           <div class="card">
-            <h4 class="card-header"> <?=$pergunta['pergunta'] ?> </h4>
+            <h4 class="card-header text-center"> <?=$pergunta['pergunta'] ?> </h4>
 
             <div class="card-body">
-              <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="A">
+              <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="A">
               <?=$pergunta['alternativa_a'];?>
             </div>
 
             <div class="card-body">
-              <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="B">
+              <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="B">
               <?=$pergunta['alternativa_b'];?>
             </div>
 
             <div class="card-body">
-              <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="C">
+              <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="C">
               <?=$pergunta['alternativa_c'];?>
             </div>
 
             <div class="card-body">
-              <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="D">
+              <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="D">
               <?=$pergunta['alternativa_d'];?>
             </div>
 
             <div class="card-body">
-              <input type="radio" class="randomiza" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="E">
+              <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="E">
               <?=$pergunta['alternativa_e'];?>
             </div>
           </div>
         <?php endforeach;?>
 
-        <div class="text-center pt-1">
+        <div class="text-center pt-3 pb-3">
           <input type="submit" name="Enviar" value="Enviar" href="<?= $data["routeValidate"] ?>" class="btn btn-lg btn-primary">
         </div>
       </form>
