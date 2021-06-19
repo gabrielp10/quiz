@@ -14,11 +14,13 @@ USE `quizdb` ;
 -- Table `quizdb`.`usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quizdb`.`usuarios` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(32) NOT NULL,
   `create_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `type_user` int(11) NOT NULL DEFAULT 2,
+  UNIQUE (`email`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -29,7 +31,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `quizdb`.`questionarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quizdb`.`questionarios` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `img` VARCHAR(300) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci',
   `nome` VARCHAR(150) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NOT NULL,
   `descricao` VARCHAR(500) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
@@ -44,7 +46,6 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`questionarios` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
 
 -- -----------------------------------------------------
 -- Table `quizdb`.`questoes`
@@ -101,7 +102,6 @@ ALTER TABLE `pontuacoes`
 ALTER TABLE `pontuacoes`
   ADD CONSTRAINT `pontuacoes_ibfk_1` FOREIGN KEY (`fk_questao`) REFERENCES `questionarios` (`id`),
   ADD CONSTRAINT `pontuacoes_ibfk_2` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id`);
-COMMIT;
 
 --
 -- Fim pontuacoes
@@ -113,4 +113,3 @@ USE `quizdb` ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-

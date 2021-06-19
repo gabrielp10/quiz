@@ -3,63 +3,22 @@ USE `quizdb`;
 -- -----------------------------------------------------
 -- Insert Table `quizdb`.`usuarios`
 -- -----------------------------------------------------
-INSERT INTO `quizdb`.`usuarios`
-(
-  `username`,
-  `email`,
-  `password`
-)
-VALUES
-(
-  'gabriel.tito',
-  'gabriel.tito@google.com',
-  '321321'
-);
+--
 
-INSERT INTO `quizdb`.`usuarios`
-(
-  `username`,
-  `email`,
-  `password`
-)
-VALUES
-(
-  'antonio.felix',
-  'antonio.felix@google.com',
-  '123123'
-);
+-- Usuarios
+INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
+(1, 'gabriel.tito', 'gabriel.tito@google.com', '321321', '2021-03-26 04:00:41', 2),
+(2, 'antonio.felix', 'antonio.felix@google.com', '123123', '2021-03-26 04:00:41', 1),
+(3, 'maicon.kuster', NULL, 'shitpost', '2021-03-30 06:23:12', 2);
 
--- -----------------------------------------------------
--- Table `quizdb`.`usuarios`
--- -----------------------------------------------------
-INSERT INTO `quizdb`.`questionarios`
-(
-  `img`,
-  `nome`,
-  `descricao`,
-  `fk_usuario`)
-VALUES
-(
-  NULL,
-  'Curiosidades sobre PHP',
-  'Nesse quiz você poderá provar seus conhecimento na liguagem de programação PHP.',
-  2
-);
+-- Questionarios
+INSERT INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_usuario`) VALUES
+(1, 'php-logo.png', 'PHP - Básico', 'Nesse quiz você poderá provar seus conhecimento na liguagem de programação PHP.', 2),
+(2, 'bash-logo.jpg', 'Linux - Básico', 'Comandos Linux básico para iniciantes.', 2),
+(3, 'python-logo.png', 'Python - Básico', 'Python básico para iniciantes.', 1),
+(4, 'css.jpg', 'CSS - Básico', 'CSS Para iniciantes.', 1);
 
-INSERT INTO `quizdb`.`questionarios`
-(
-  `img`,
-  `nome`,
-  `descricao`,
-  `fk_usuario`)
-VALUES
-(
-  NULL,
-  'Comandos mais utilizados no linux',
-  NULL,
-  2
-);
-
+-- Linux id 2
 INSERT INTO `quizdb`.`questoes`
 (
 `descricao`,
@@ -81,20 +40,7 @@ VALUES
 'cd',
 2,
 'D'
-);
-
-INSERT INTO `quizdb`.`questoes`
-(
-`descricao`,
-`alternativa_a`,
-`alternativa_b`,
-`alternativa_c`,
-`alternativa_d`,
-`alternativa_e`,
-`fk_questionarios`,
-`resposta`
-)
-VALUES
+),
 (
 'Qual comando move os arquivos de um diretorio para o outro?',
 'mv',
@@ -106,6 +52,7 @@ VALUES
 'A'
 );
 
+-- PHP id 1
 INSERT INTO `quizdb`.`questoes`
 (
 `descricao`,
@@ -129,22 +76,7 @@ VALUES
 'C'
 );
 
-
-
-INSERT INTO `quizdb`.`questionarios`
-(
-  `img`,
-  `nome`,
-  `descricao`,
-  `fk_usuario`)
-VALUES
-(
-  'python-logo.png',
-  'Python - Básico',
-  'Python básico para iniciantes.',
-  1
-);
-
+-- Python id 3
 INSERT INTO `quizdb`.`questoes`
 (
 `descricao`,
@@ -206,12 +138,4 @@ VALUES
 'fn minhaFunction()',
  3,
 'C'
-)
-;
-
--- UPDATES
-
-UPDATE questionarios SET img = 'php-logo.png' WHERE id = 1;
-
-UPDATE questionarios set img = 'bash-logo.jpg' WHERE id = 2;
-
+);
