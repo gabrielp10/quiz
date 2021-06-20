@@ -18,40 +18,19 @@
     <?php $nQuestao = 0;
       foreach ($data['perguntas'] as $pergunta) : 
       $nQuestao += 1?>
-
-      <div id="shuffle<?=$nQuestao?>" class="card">
+        <div id="shuffle<?=$nQuestao?>" class="card">
         <h4 class="card-header text-center"> <?=$pergunta['pergunta'] ?> </h4>
-
-        <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="A">
-          <?=$pergunta['alternativa_a'];?>
+          <?php foreach($data['alternativas'] as $alternativa) :?>
+            <div class="card-body">
+              <input type="radio" name="quizcheck[<?= $alternativa['alternativa'] ?>]" value="A">
+              <?=$alternativa['alternativa'];?>
+            </div>
+          <?php endforeach ; ?>
+            <script>
+              shuffle(<?=$nQuestao?>);
+            </script>
         </div>
-
-        <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="B">
-          <?=$pergunta['alternativa_b'];?>
-        </div>
-
-        <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="C">
-          <?=$pergunta['alternativa_c'];?>
-        </div>
-
-        <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="D">
-          <?=$pergunta['alternativa_d'];?>
-        </div>
-
-        <div class="card-body">
-          <input type="radio" name="quizcheck[<?= $pergunta['id_questao'] ?>]" value="E">
-          <?=$pergunta['alternativa_e'];?>
-        </div>
-        <script>
-          shuffle(<?=$nQuestao?>);
-      </script>
-      </div>
     <?php endforeach;?>
-
     <div class="text-center pt-3 pb-3">
       <input type="submit" name="Enviar" value="Enviar" href="<?= $data["routeValidate"] ?>" class="btn btn-lg btn-primary">
     </div>

@@ -9,7 +9,6 @@ USE `quizdb`;
 INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
 (1, 'gabriel.tito', 'gabriel.tito@google.com', '321321', '2021-03-26 04:00:41', 2),
 (2, 'antonio.felix', 'antonio.felix@google.com', '123123', '2021-03-26 04:00:41', 1),
-(3, 'maicon.kuster', NULL, 'shitpost', '2021-03-30 06:23:12', 2);
 
 -- Questionarios
 INSERT INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_usuario`) VALUES

@@ -11,14 +11,15 @@ class Questao extends Model
         parent::__construct();
     }
 
-    public function getRespostasPorIds($ids)
+    public function getAlternativasQuestionarioPorId($id)
     {
-        $sql = "SELECT id, resposta, fk_questionarios
-                FROM questoes
-                WHERE id IN ($ids);";
+        $sql = "SELECT
+                a.alternativa 
+                FROM alternativas a 
+                inner join questoes q on q.id = a.fk_questoes 
+                WHERE q.id = $id";
 
         $this->conexao->query($sql);
-
         return $this->conexao->execute()->fetchAll($this->fetchType);
     }
     

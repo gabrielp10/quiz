@@ -11,7 +11,7 @@ class LoginController
     public function index() 
     {
         $data = [
-            "title" => "Quiz - Linux",
+            "title" => "Quiz - Login",
             "routeLogin" => route('login'),
             "routeRegister" => route('register')
         ];

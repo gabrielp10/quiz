@@ -30,6 +30,7 @@ class QuizController
         }
 
         $perguntas = $this->questionario->getQuestoesQuestionarioPorId($id);
+        $alternativas = $this->questao->getAlternativasQuestionarioPorId($perguntas[0]['id']);
 
         if (empty($perguntas)) {
             return redirect(route('home'));
@@ -41,6 +42,7 @@ class QuizController
             "routeLogout" => route('logout'),
             "img" => $perguntas[0]['questionario_imagem'],
             "perguntas" => $perguntas,
+            "alternativas" => $alternativas
           ];
 
         view('quiz', $data);
@@ -64,7 +66,7 @@ class QuizController
         
               $idsQuestoes = implode(', ', array_keys($selecionado));
         
-              $respostas = $this->questao->getRespostasPorIds($idsQuestoes);
+              $respostas = $this->questao->getAlternativasQuestionarioPorId($idsQuestoes);
 
               $resultado = 0;
         
