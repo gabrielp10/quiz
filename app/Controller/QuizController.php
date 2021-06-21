@@ -81,19 +81,23 @@ class QuizController
 
                 $idsQuestoes = implode(', ', array_keys($selecionado));
 
-                $respostas = $this->questao->getAlternativasQuestionarioPorId($idsQuestoes);
+                $alternativas = $this->questao->getAlternativasQuestionarioPorId($idsQuestoes);
+
+                $respostas = $this->questao->getRespostasAlternativasQuestionarioPorId($idsQuestoes);
+
+                var_dump($respostas);
 
                 $resultado = 0;
 
                 foreach ($respostas as $resposta) {
 
-                    if ($selecionado[$resposta['id']] === $resposta['resposta']) {
+                    if ($selecionado[$i] == $resposta['id_alternativa']) {
                         $resultado++;
                     }
                     $i++;
                 }
 
-                $percentAcertos =  ($resultado / $i) * 100;
+                $percentAcertos =  var_dump($selecionado); //($resultado / $i) * 100;
 
                 $data = [
                     'title' => 'Quiz - Resultado',

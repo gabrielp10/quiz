@@ -80,7 +80,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Estrutura da tabela `pontuacoes`
 --
 
-CREATE TABLE `pontuacoes` (
+CREATE TABLE IF NOT EXISTS `pontuacoes` (
   `id` int(11) NOT NULL,
   `pontuacao` int(11) DEFAULT NULL,
   `feito_em` timestamp NOT NULL DEFAULT current_timestamp(),

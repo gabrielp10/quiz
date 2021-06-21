@@ -22,7 +22,7 @@
         <h4 class="card-header text-center"> <?=$pergunta['pergunta'] ?> </h4>
           <?php foreach($data['alternativas'] as $alternativa) :?>
             <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $alternativa['alternativa'] ?>]" value="A">
+              <input type="radio" name="quizcheck[<?= $alternativa['id_alternativa'] ?>]" value="<?= $alternativa['id_alternativa'] ?>">
               <?=$alternativa['alternativa'];?>
             </div>
           <?php endforeach ; ?>
