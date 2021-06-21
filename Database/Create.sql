@@ -107,6 +107,24 @@ ALTER TABLE `pontuacoes`
 -- Fim pontuacoes
 --
 
+--
+-- Estrutura para tabela `alternativas`
+--
+
+CREATE TABLE IF NOT EXISTS `alternativas` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `alternativa` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `resposta` tinyint(1) NOT NULL,
+  `fk_questoes` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_questoes` (`fk_questoes`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `alternativas`
+  ADD CONSTRAINT `fk_questoes` FOREIGN KEY (`fk_questoes`) REFERENCES `questoes` (`id`);
+--
+-- Fim alternativas
+--
 
 USE `quizdb` ;
 

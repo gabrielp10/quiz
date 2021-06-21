@@ -138,3 +138,64 @@ VALUES
  3,
 'C'
 );
+
+
+--
+-- Despejando dados para a tabela `alternativas`
+--
+
+INSERT INTO `alternativas` (`id`, `alternativa`, `resposta`, `fk_questoes`) VALUES
+(1, 'mv', 0, 1),
+(2, 'sudo rm -rf /', 0, 1),
+(3, 'cat', 0, 1),
+(4, 'cp', 1, 1),
+(5, 'cd', 0, 1),
+(6, 'mv', 1, 2),
+(7, 'sudo rm -rf /', 0, 2),
+(8, 'cat', 0, 2),
+(9, 'cp', 0, 2),
+(10, 'cd', 0, 2),
+(11, '$string,toUpper()', 0, 3),
+(12, 'upper_str($tring)', 0, 3),
+(13, 'strtoupper($tring)', 1, 3),
+(14, 'str_upper($tring)', 0, 3),
+(15, 'upper($string)', 0, 3),
+(16, 'print(\"Hello World\")', 1, 4),
+(17, 'echo(\"Hello World\");', 0, 4),
+(18, 'p(\"Hello World\")', 0, 4),
+(19, 'echo \"Hello World\"', 0, 4),
+(20, 'Nenhuma das alternativas', 0, 4),
+(21, '/*Esse é um comentário*/', 0, 5),
+(22, '//Esse é um comentário', 0, 5),
+(23, '#Esse é um comentário', 1, 5),
+(24, '--Esse é um comentário', 0, 5),
+(25, '&lt;!-- Esse é um comentário --&gt;', 0, 5),
+(26, 'minha_variavel', 0, 6),
+(27, 'minha-variavel', 1, 6),
+(28, '_minhavariavel', 0, 6),
+(29, 'minhaVariavel', 0, 6),
+(30, 'Minhavariavel', 0, 6),
+(31, '.pyt', 0, 7),
+(32, '.pyth', 0, 7),
+(33, '.snake', 0, 7),
+(34, '.pt', 0, 7),
+(35, '.py', 1, 7),
+(36, 'create minhaFunction()', 0, 8),
+(37, 'function minhaFunction()', 0, 8),
+(38, 'def minhaFunction()', 1, 8),
+(39, 'public void minhaFunction()', 0, 8),
+(40, 'fn minhaFunction()', 0, 8);
+
+--
+-- Despejando dados para a tabela `pontuacoes`
+--
+
+INSERT INTO `pontuacoes` (`id`, `pontuacao`, `feito_em`, `fk_questao`, `fk_usuario`) VALUES
+(16, 0, '2021-03-29 01:04:25', 2, 1),
+(17, 1, '2021-03-29 01:04:42', 3, 1),
+(18, 0, '2021-03-29 01:06:53', 1, 1),
+(19, 0, '2021-03-29 01:22:14', 1, 1),
+(20, 2, '2021-03-30 03:23:09', 2, 1),
+(21, 3, '2021-06-18 21:18:52', 3, 2),
+(22, 3, '2021-06-19 05:41:49', 3, 1),
+(23, 2, '2021-06-19 05:42:01', 2, 1);
