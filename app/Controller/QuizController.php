@@ -42,7 +42,10 @@ class QuizController
         }
 
         $perguntas = $this->questionario->getQuestoesQuestionarioPorId($idQuestionario);
-        $alternativas = $this->questao->getAlternativasQuestionarioPorId($perguntas[0]['id']);
+
+        foreach ($perguntas as $pergunta){
+          $alternativas[] = $this->questao->getAlternativasQuestionarioPorId($pergunta['id']);
+        }
 
         if (empty($perguntas)) {
             return redirect(route('home'));
