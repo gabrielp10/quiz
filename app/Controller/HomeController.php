@@ -20,6 +20,10 @@ class HomeController
 
     public function index()
     {
+        if (!isset($_SESSION['id'])){
+          return redirect(route('login'));
+        }
+        
         $quizzes = $this->questionario->all();
         $idQuestionarioAberto = $this->acessoQuestionario->getQuestionarioAberto($_SESSION['id']);
 
