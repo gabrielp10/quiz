@@ -28,10 +28,11 @@ class Questao extends Model
     {
         $sql = "SELECT
                 a.alternativa,
-                a.id AS id_alternativa
+                a.id AS id_alternativa,
+                a.resposta
                 FROM alternativas a 
                 inner join questoes q on q.id = a.fk_questoes 
-                WHERE a.id = $id and a.resposta = '1'";
+                WHERE a.id = $id";
 
         $this->conexao->query($sql);
         return $this->conexao->execute()->fetchAll($this->fetchType);

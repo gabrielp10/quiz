@@ -68,45 +68,34 @@ class QuizController
     {
         $request = request()->all();
 
-
         if (isset($request['Enviar'])) {
 
             if (!empty($request['quizcheck'])) {
+                $resultado = 0;
+                $i = 0;
 
                 $idQuestionarioAberto = $this->acessoQuestionario->encerrarQuestionario($_SESSION['id']);
 
                 $count = count($request['quizcheck']);
 
-                $resultado = 0;
-                $i = 0;
-
                 $selecionado = $request['quizcheck'];
 
-                $idsQuestoes = implode(', ', array_keys($selecionado));
-
-
-                $respostas = $this->questao->getRespostasAlternativasQuestionarioPorId($idsQuestoes);
-
-                var_dump($respostas);
-
-                $resultado = 0;
-
-                foreach ($respostas as $resposta) {
-
-                    if ($selecionado[$i] == $resposta['id_alternativa']) {
+                foreach ($selecionado as $resposta) {
+                  
+                    if ($this->questao->getRespostasAlternativasQuestionarioPorId($resposta)[0]['resposta'] == '1') {
                         $resultado++;
                     }
                     $i++;
                 }
 
-                $percentAcertos =  var_dump($selecionado); //($resultado / $i) * 100;
+                $percentAcertos =  ($resultado / $i) * 100;
 
                 $data = [
                     'title' => 'Quiz - Resultado',
                     'pontuacao' => $resultado,
                     'totalQuestoes' => $i,
                     'percentAcertos' => $percentAcertos,
-                    'idQuestionario' => $resposta['fk_questionarios'],
+                    'idQuestionario' => $request['id'],
                     'routePontuacao' => route('validate'),
                     'routeLogout' => route('logout')
                 ];
@@ -116,7 +105,7 @@ class QuizController
                 $save = $pontuacao->save(
                     [
                         'pontuacao' => $resultado,
-                        'fk_questao' => $resposta['fk_questionarios'],
+                        'fk_questao' => $request['id'],
                         'fk_usuario' => $_SESSION['id']
 
                     ]
