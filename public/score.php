@@ -12,7 +12,7 @@
       <tr class="mouseColor">
           <td ><?= $score["nome_questionario"]?></td>
           <td><?= $score["pontuacao"]?></td>
-          <td><?= DateTime::createFromFormat('Y-m-d H:i:s', $score["feito_em"])->format('d-m-Y')?></td>
+          <td><?= DateTime::createFromFormat('Y-m-d H:i:s', $score["feito_em"])->format('d/m/Y')?></td>
       <tr>
 
       <?php endforeach; ?>   

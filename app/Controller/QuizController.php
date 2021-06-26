@@ -88,7 +88,19 @@ class QuizController
                     $i++;
                 }
 
+                var_dump($count);
+
                 $percentAcertos =  ($resultado / $i) * 100;
+
+              if ($percentAcertos <= 24){
+                $percentAcertosBar = 'danger';
+              } else if ($percentAcertos <= 49){
+                $percentAcertosBar = 'warning';
+              }else if ($percentAcertos <= 74){
+                $percentAcertosBar = 'info';
+              }else if ($percentAcertos <= 100){
+                $percentAcertosBar = 'success';
+              }
 
                 $data = [
                     'title' => 'Quiz - Resultado',
@@ -96,6 +108,7 @@ class QuizController
                     'totalQuestoes' => $i,
                     'percentAcertos' => $percentAcertos,
                     'idQuestionario' => $request['id'],
+                    'percentAcertosBar' => $percentAcertosBar,
                     'routePontuacao' => route('validate'),
                     'routeLogout' => route('logout')
                 ];
@@ -112,8 +125,8 @@ class QuizController
 
                 );
 
-
                 view('validate', $data);
+
             }
         }
     }
