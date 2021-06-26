@@ -15,23 +15,22 @@
   </div>
 
   <form action="<?= $data['routeValidate'] ?>" method="post">
-    <?php $nQuestao = 0; $nAlternativa = 0;
-      foreach ($data['perguntas'] as $pergunta) : 
+    <?php $nQuestao = 0;
+      foreach ($data['perguntas'] as $key => $pergunta) : 
       $nQuestao += 1?>
         <div id="shuffle<?=$nQuestao?>" class="card">
         <h4 class="card-header text-center"> <?=$pergunta['pergunta'] ?> </h4>
-          <?php
-           foreach($data['alternativas'] as $key => $alternativa) :?>
+          <?php $i = 0; foreach($pergunta as $alternativa) :?>
             <div class="card-body">
-              <input type="radio" name="quizcheck[<?= $data['alternativas'][$nAlternativa][$key]['id_alternativa'] ?>]" value="<?= $data['alternativas'][$nAlternativa][$key]['id_alternativa'] ?>">
-              <?=$data['alternativas'][$nAlternativa][$key]['alternativa'];?>
+              <input type="radio" name="quizcheck[<?= '' ?>]" value="  ">
+              <?=$data['alternativas'][$key][$i]['alternativa'];?>
             </div>
-          <?php  endforeach ; ?>
+          <?php $i++;  endforeach ; ?>
             <script>
               shuffle(<?=$nQuestao?>);
             </script>
         </div>
-    <?php $nAlternativa += 1; endforeach;?>
+    <?php endforeach;?>
     <div class="text-center pt-3 pb-3">
       <input type="submit" name="Enviar" value="Enviar" href="<?= $data["routeValidate"] ?>" class="btn btn-lg btn-primary">
     </div>
