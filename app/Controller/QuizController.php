@@ -76,7 +76,11 @@ class QuizController
 
                 $idQuestionarioAberto = $this->acessoQuestionario->encerrarQuestionario($_SESSION['id']);
 
+                $rankingtop10 = $this->pontuacao->getRankingByQuiz($request['id']);
+
                 $count = count($request['quizcheck']);
+
+                $questionario = $this->questionario->getQuestoesQuestionarioPorId($request['id']);
 
                 $selecionado = $request['quizcheck'];
 
@@ -88,9 +92,7 @@ class QuizController
                     $i++;
                 }
 
-                var_dump($count);
-
-                $percentAcertos =  ($resultado / $i) * 100;
+              $percentAcertos =  ($resultado / $i) * 100;
 
               if ($percentAcertos <= 24){
                 $percentAcertosBar = 'danger';
@@ -103,12 +105,15 @@ class QuizController
               }
 
                 $data = [
-                    'title' => 'Quiz - Resultado',
+                    'title' => "Quiz - Resultado",
                     'pontuacao' => $resultado,
                     'totalQuestoes' => $i,
                     'percentAcertos' => $percentAcertos,
                     'idQuestionario' => $request['id'],
                     'percentAcertosBar' => $percentAcertosBar,
+                    'img' => $questionario[0]['questionario_imagem'],
+                    'title' => $questionario[0]['questionario_titulo'],
+                    'rankingTop10' => $rankingtop10,
                     'routePontuacao' => route('validate'),
                     'routeLogout' => route('logout')
                 ];
