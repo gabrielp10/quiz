@@ -19,10 +19,10 @@
       foreach ($data['perguntas'] as $key => $pergunta) : 
       $nQuestao += 1?>
         <div id="shuffle<?=$nQuestao?>" class="card">
-        <h4 class="card-header text-center"> <?=$pergunta['pergunta'] ?> </h4>
-          <?php $i = 0; foreach($pergunta as $alternativa) :?>
+        <h4 class="card-header text-center"> <?=$pergunta['pergunta']?> </h4>
+          <?php $i = 0; foreach($data['alternativas'][$key] as $alternativa) : ?>
             <div class="card-body">
-              <input type="radio" name="quizcheck[<?= '' ?>]" value="  ">
+              <input type="radio" name="quizcheck[<?=$data['alternativas'][$key][$i]['id_alternativa']?>]" value="<?=$data['alternativas'][$key][$i]['id_alternativa']?>">
               <?=$data['alternativas'][$key][$i]['alternativa'];?>
             </div>
           <?php $i++;  endforeach ; ?>

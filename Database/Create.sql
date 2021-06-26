@@ -126,6 +126,27 @@ ALTER TABLE `alternativas`
 -- Fim alternativas
 --
 
+--
+-- Estrutura para tabela `acesso_questionarios`
+--
+
+CREATE TABLE IF NOT EXISTS `acesso_questionarios` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `iniciado_em` datetime NOT NULL DEFAULT utc_timestamp(),
+  `terminado_em` datetime DEFAULT NULL,
+  `fk_questionarios` int(11) NOT NULL,
+  `fk_usuarios` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_usuarios` (`fk_usuarios`),
+  KEY `fk_questionarios` (`fk_questionarios`),
+  CONSTRAINT `acesso_questionarios_ibfk_1` FOREIGN KEY (`fk_usuarios`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `acesso_questionarios_ibfk_2` FOREIGN KEY (`fk_questionarios`) REFERENCES `questionarios` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Acesso questionarios
+--
+
 USE `quizdb` ;
 
 SET SQL_MODE=@OLD_SQL_MODE;

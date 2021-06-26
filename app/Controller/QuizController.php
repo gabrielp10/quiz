@@ -84,7 +84,6 @@ class QuizController
 
                 $idsQuestoes = implode(', ', array_keys($selecionado));
 
-                $alternativas = $this->questao->getAlternativasQuestionarioPorId($idsQuestoes);
 
                 $respostas = $this->questao->getRespostasAlternativasQuestionarioPorId($idsQuestoes);
 
