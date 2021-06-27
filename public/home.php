@@ -39,6 +39,7 @@ if (!is_null($message)) :
           <h5 class="card-title"><?= $quiz['nome'] ?></h5>
           <hr>
           <p class="card-text"><?= $quiz['descricao'] ?></p>
+          <a href="<?= "$data[routeDashQuiz]/$quiz[id]"?>">Detalhes</a>
         </div>
         <div class="row justify-content-end ">
           <?php
