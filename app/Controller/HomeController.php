@@ -30,6 +30,7 @@ class HomeController
         $data = [
             "title" => "Quiz - Home",
             "routeQuiz" => route('quiz'),
+            "routeDashQuiz" => route('dashQuiz'),
             "quizzes" => $quizzes,
             "idQuestionarioAberto" => $idQuestionarioAberto,
             "routeScore" => route('score'),
@@ -44,10 +45,5 @@ class HomeController
         }
 
         return view('home', $data);
-    }
-
-    public function checkUser()
-    {
-        print_r($_SESSION());
     }
 }

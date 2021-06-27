@@ -167,4 +167,29 @@ class QuizController
 
         view('score', $data);
     }
-}
+
+    public function dashQuiz($idQuestionario)
+    {
+      $idQuestionario = intval($idQuestionario);
+
+      $rankingtop10 = $this->pontuacao->getRankingByQuiz($idQuestionario);
+
+      $questionario = $this->questionario->one($idQuestionario);
+
+      $data = [
+        "title" => "Quiz - {$questionario[0]['nome']}",
+        "routeQuiz" => route('quiz'),
+        "routeDashQuiz" => route('dashQuiz'),
+        "idQuestionario" => $idQuestionario,
+        "descricao" =>  $questionario[0]['descricao'],
+        "img" =>  $questionario[0]['img'],
+        "routeScore" => route('score'),
+        'rankingTop10' => $rankingtop10,
+        "routeRanking" => route('ranking'),
+        "routeLogout" =>  route('logout')
+      ];
+
+      view('dashQuiz', $data);
+
+    }
+} 
