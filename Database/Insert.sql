@@ -11,11 +11,21 @@ INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `typ
 (2, 'antonio.felix', 'antonio.felix@google.com', '123123', '2021-03-26 04:00:41', 1),
 
 -- Questionarios
-INSERT INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_usuario`) VALUES
-(1, 'php-logo.png', 'PHP - Básico', 'Nesse quiz você poderá provar seus conhecimento na liguagem de programação PHP.', 2),
-(2, 'bash-logo.jpg', 'Linux - Básico', 'Comandos Linux básico para iniciantes.', 2),
-(3, 'python-logo.png', 'Python - Básico', 'Python básico para iniciantes.', 1),
-(4, 'css.jpg', 'CSS - Básico', 'CSS Para iniciantes.', 1);
+
+INSERT INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_subcategorias`, `fk_usuario`) VALUES
+(1, 'php-logo.png', 'Curiosidades sobre PHP', 'Nesse quiz você poderá provar seus conhecimento na liguagem de programação PHP.', 1, 2),
+(2, 'bash-logo.jpg', 'Comandos mais utilizados no linux', 'Descubra o que você sabe sobre Linux!', 2, 2),
+(3, 'python-logo.png', 'Python - Básico', 'Python básico para iniciantes.', 3, 1),
+(4, 'breaking-bad.jpg', 'Breaking Bad', 'Você acha que sabe tudo sobre Breaking Bad? Descubra!', 4, NULL),
+(5, 'futebol.jpg', 'Futebol', 'Algumas curiosidades e fatos sobre o futebol\r\n', 5, NULL),
+(6, 'super-mario.jpg', 'Super Mario', 'Veja se você conhece sobre Super Mário!', 6, NULL),
+(7, 'the-office.jpg', 'The Office', 'Descubra o quanto você conhece sobre a série The Office!', 4, NULL),
+(8, 'bandersnatch.jpg', 'Bandersnatch', 'Algumas curiosidades sobre o enigmático episódio de Black Mirror', 4, NULL),
+(13, 'resident-evil4.jpg', 'Resident Evil - 4', 'Easter eggs que poucos conhece sobre Biohazard!', 7, NULL),
+(14, 'egames.jpg', 'Egames', 'O que você sabe sobre esse mais novo esporte?', 10, NULL),
+(15, 'basquete.jpg', 'Basquete', 'Curiosidades e fatos sobre a história do basquete', 9, NULL),
+(16, 'mortal-kombat.jpg', 'Mortal Kombat X', 'Algumas curiosidades sobre os novos personagens e história', 8, NULL);
+
 
 -- Linux id 2
 INSERT INTO `quizdb`.`questoes`
@@ -199,3 +209,31 @@ INSERT INTO `pontuacoes` (`id`, `pontuacao`, `feito_em`, `fk_questao`, `fk_usuar
 (21, 3, '2021-06-18 21:18:52', 3, 2),
 (22, 3, '2021-06-19 05:41:49', 3, 1),
 (23, 2, '2021-06-19 05:42:01', 2, 1);
+
+
+--
+-- Despejando dados para a tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `Nome`) VALUES
+(1, 'Tecnologia da informação'),
+(2, 'Filmes e series'),
+(3, 'Esportes'),
+(4, 'Games');
+
+--
+-- Despejando dados para a tabela `subcategorias`
+--
+
+INSERT INTO `subcategorias` (`id`, `Nome`, `fk_categorias`) VALUES
+(1, 'PHP', 1),
+(2, 'Linux', 1),
+(3, 'Python', 1),
+(4, 'Series', 2),
+(5, 'Futebol', 3),
+(6, 'Super Mario', 4),
+(7, 'Resident Evil', 4),
+(8, 'Mortal Kombat', 4),
+(9, 'Basquete', 3),
+(10, 'Egames', 3);
+
