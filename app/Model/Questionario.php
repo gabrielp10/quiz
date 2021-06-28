@@ -17,7 +17,8 @@ class Questionario extends Model
                   q.descricao AS pergunta,
                   qst.nome AS questionario_titulo,
                   qst.img AS questionario_imagem,
-                  q.id AS id
+                  qst.id AS questionario_id,
+                  q.id
                 FROM questoes q 
                 INNER JOIN questionarios qst ON q.fk_questionarios = qst.id 
                 WHERE qst.id = $id";

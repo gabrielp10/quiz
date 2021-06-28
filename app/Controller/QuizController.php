@@ -42,7 +42,10 @@ class QuizController
         }
 
         $perguntas = $this->questionario->getQuestoesQuestionarioPorId($idQuestionario);
-        $alternativas = $this->questao->getAlternativasQuestionarioPorId($perguntas[0]['id']);
+
+        foreach ($perguntas as $pergunta){
+          $alternativas[] = $this->questao->getAlternativasQuestionarioPorId($pergunta['id']);
+        }
 
         if (empty($perguntas)) {
             return redirect(route('home'));
@@ -65,42 +68,52 @@ class QuizController
     {
         $request = request()->all();
 
-
         if (isset($request['Enviar'])) {
 
             if (!empty($request['quizcheck'])) {
-
-                $idQuestionarioAberto = $this->acessoQuestionario->encerrarQuestionario($_SESSION['id']);
-
-                $count = count($request['quizcheck']);
-
                 $resultado = 0;
                 $i = 0;
 
+                $idQuestionarioAberto = $this->acessoQuestionario->encerrarQuestionario($_SESSION['id']);
+
+                $rankingtop10 = $this->pontuacao->getRankingByQuiz($request['id']);
+
+                $count = count($request['quizcheck']);
+
+                $questionario = $this->questionario->getQuestoesQuestionarioPorId($request['id']);
+
                 $selecionado = $request['quizcheck'];
 
-                $idsQuestoes = implode(', ', array_keys($selecionado));
-
-                $respostas = $this->questao->getAlternativasQuestionarioPorId($idsQuestoes);
-
-                $resultado = 0;
-
-                foreach ($respostas as $resposta) {
-
-                    if ($selecionado[$resposta['id']] === $resposta['resposta']) {
+                foreach ($selecionado as $resposta) {
+                  
+                    if ($this->questao->getRespostasAlternativasQuestionarioPorId($resposta)[0]['resposta'] == '1') {
                         $resultado++;
                     }
                     $i++;
                 }
 
-                $percentAcertos =  ($resultado / $i) * 100;
+              $percentAcertos =  ($resultado / $i) * 100;
+
+              if ($percentAcertos <= 24){
+                $percentAcertosBar = 'danger';
+              } else if ($percentAcertos <= 49){
+                $percentAcertosBar = 'warning';
+              }else if ($percentAcertos <= 74){
+                $percentAcertosBar = 'info';
+              }else if ($percentAcertos <= 100){
+                $percentAcertosBar = 'success';
+              }
 
                 $data = [
-                    'title' => 'Quiz - Resultado',
+                    'title' => "Quiz - Resultado",
                     'pontuacao' => $resultado,
                     'totalQuestoes' => $i,
                     'percentAcertos' => $percentAcertos,
-                    'idQuestionario' => $resposta['fk_questionarios'],
+                    'idQuestionario' => $request['id'],
+                    'percentAcertosBar' => $percentAcertosBar,
+                    'img' => $questionario[0]['questionario_imagem'],
+                    'title' => $questionario[0]['questionario_titulo'],
+                    'rankingTop10' => $rankingtop10,
                     'routePontuacao' => route('validate'),
                     'routeLogout' => route('logout')
                 ];
@@ -110,15 +123,15 @@ class QuizController
                 $save = $pontuacao->save(
                     [
                         'pontuacao' => $resultado,
-                        'fk_questao' => $resposta['fk_questionarios'],
+                        'fk_questao' => $request['id'],
                         'fk_usuario' => $_SESSION['id']
 
                     ]
 
                 );
 
-
                 view('validate', $data);
+
             }
         }
     }
@@ -154,4 +167,29 @@ class QuizController
 
         view('score', $data);
     }
-}
+
+    public function dashQuiz($idQuestionario)
+    {
+      $idQuestionario = intval($idQuestionario);
+
+      $rankingtop10 = $this->pontuacao->getRankingByQuiz($idQuestionario);
+
+      $questionario = $this->questionario->one($idQuestionario);
+
+      $data = [
+        "title" => "Quiz - {$questionario[0]['nome']}",
+        "routeQuiz" => route('quiz'),
+        "routeDashQuiz" => route('dashQuiz'),
+        "idQuestionario" => $idQuestionario,
+        "descricao" =>  $questionario[0]['descricao'],
+        "img" =>  $questionario[0]['img'],
+        "routeScore" => route('score'),
+        'rankingTop10' => $rankingtop10,
+        "routeRanking" => route('ranking'),
+        "routeLogout" =>  route('logout')
+      ];
+
+      view('dashQuiz', $data);
+
+    }
+} 

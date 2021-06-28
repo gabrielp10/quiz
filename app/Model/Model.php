@@ -22,6 +22,12 @@ class Model
         return $this->conexao->con->query($sql)->fetchAll($this->fetchType);
     }
 
+    public function one($id)
+    {
+      $sql = "SELECT * FROM $this->table where id = $id";
+      return $this->conexao->con->query($sql)->fetchAll($this->fetchType);
+    }
+
     public function fetchType($fetchType)
     {
         $this->fetchType = $fetchType;

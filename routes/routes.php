@@ -28,4 +28,6 @@ Route::get(['set' => '/editar-quiz', 'as' => 'editQuiz'], 'AdminController@editQ
 
 Route::get(['set' => '/deletar-quiz', 'as' => 'deleteQuiz'], 'AdminController@deleteQuiz');
 
+Route::get(['set' => '/dash-quiz/{id}', 'as' => 'dashQuiz'], 'QuizController@dashQuiz');
+
 
