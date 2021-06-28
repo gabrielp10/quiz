@@ -26,7 +26,7 @@ if (!is_null($message)) :
     <div class="row">
     <div class="card-deck">
       <?php $i = 0; foreach ($data['quizzes'][$key] as $quiz) : ?>
-        <div class="card  hvr-reveal col-md-4 col-sm-5 col-lg-3 mb-2 ml-2">
+        <div class="card  hvr-reveal col-md-4 col-sm-4 col-lg-4 mb-2 ml-2">
           <div class="view overlay">
             <?php if (empty($data['quizzes'][$key][$i]['img'])) : ?>
               <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
@@ -59,8 +59,8 @@ if (!is_null($message)) :
         </div>
       <?php $i++; endforeach ?>
     </div>
+  </div>
   <?php endforeach ?>
-</div>
 </div>
 
 <?php include_once "footer.php" ?>
