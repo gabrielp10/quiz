@@ -156,7 +156,7 @@ ALTER TABLE `alternativas`
 
 CREATE TABLE IF NOT EXISTS `acesso_questionarios` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `iniciado_em` datetime NOT NULL DEFAULT utc_timestamp(),
+  `iniciado_em` datetime NOT NULL DEFAULT (UTC_TIMESTAMP()),
   `terminado_em` datetime DEFAULT NULL,
   `fk_questionarios` int(11) NOT NULL,
   `fk_usuarios` int(11) NOT NULL,
