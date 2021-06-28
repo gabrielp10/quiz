@@ -126,6 +126,17 @@ ALTER TABLE `alternativas`
 -- Fim alternativas
 --
 
+CREATE TABLE IF NOT EXISTS `acesso_questionarios` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `iniciado_em` DATETIME NOT NULL DEFAULT (UTC_TIMESTAMP()),
+  `terminado_em` DATETIME NULL,
+  `fk_questionarios` INT NOT NULL,
+  `fk_usuarios` INT NOT NULL,
+  FOREIGN KEY (`fk_usuarios`) REFERENCES `usuarios` (`id`),
+  FOREIGN KEY (`fk_questionarios`) REFERENCES `questionarios` (`id`),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 USE `quizdb` ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
