@@ -1,5 +1,3 @@
-<?php include_once("./navbar.php") ?>
-
 <div class="container">
   <div class="card">
     <h3 class="text-center card-header"> Bem-vindo <?= $_SESSION['usuario'] ?>, Selecione uma das alternativas. Boa sorte!</h3>
@@ -38,5 +36,3 @@
     </div>
   </form>
 </div>
-
-<?php include_once "footer.php" ?>

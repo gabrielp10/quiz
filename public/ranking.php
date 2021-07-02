@@ -1,6 +1,3 @@
-
-<?php include_once("./navbar.php") ?>
-
 <div class="container">
   <table class="table table-striped text-center border font-weight-bold">
       <tr>
@@ -21,5 +18,3 @@
       <?php endforeach; ?>
   </table>
 </div>
-
-<?php include_once ("./footer.php") ?>

@@ -1,6 +1,5 @@
 <?php
    $message = getMessage('login');
-   include_once("./navbar.php")
 ?>
 
 <h1 class="display-4 text-center card-header"> Bem  vindo ao Quiz! </h1>
@@ -56,4 +55,3 @@
       </div>
    </div>
 </div>
-<?php include_once "footer.php" ?>

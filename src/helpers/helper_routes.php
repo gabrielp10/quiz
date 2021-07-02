@@ -34,8 +34,10 @@ function redirect($route)
 }
 
 function view($file, $data)
-{
+{   
+    require __DIR__ ."/../../public/navbar.php";
     require __DIR__ ."/../../public/$file.php";
+    require __DIR__ ."/../../public/footer.php";
 } 
 
 function back()

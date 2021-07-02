@@ -1,4 +1,4 @@
-<?php include_once("./navbar.php");
+<?php 
 
 $message = getMessage('acesso_questionario');
 if (!is_null($message)) :
@@ -63,4 +63,3 @@ if (!is_null($message)) :
   <?php endforeach ?>
 </div>
 
-<?php include_once "footer.php" ?>

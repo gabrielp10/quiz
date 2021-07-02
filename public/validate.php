@@ -1,8 +1,6 @@
 <?php
 use App\Controller;
 ?>
-
-<?php include_once("./navbar.php") ?>
   <div class="container">
     <h3 class="text-center card-header"><strong> Quiz - <?=$data['title']?> - Resultado</strong></h3>
       <?php if (empty($data['img'])) : ?>
@@ -34,4 +32,3 @@ use App\Controller;
       <?php endforeach; ?>
   </table>
   </div>
-<?php include_once("./footer.php") ?>

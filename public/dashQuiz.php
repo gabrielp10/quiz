@@ -1,8 +1,6 @@
 <?php
 use App\Controller;
 ?>
-
-<?php include_once("./navbar.php") ?>
   <div class="container text-center">
     <h3 class=" card-header"><strong><?=$data['title']?></strong></h3>
     <?php if (empty($data['img'])) : ?>
@@ -33,4 +31,3 @@ use App\Controller;
     <?php endforeach; ?>
   </table>
   </div>
-<?php include_once("./footer.php") ?>
