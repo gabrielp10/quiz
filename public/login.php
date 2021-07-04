@@ -14,13 +14,12 @@
          <h3>Login</h3>
          <form action=<?= $data['routeLogin'] ?> method="post">
             <div class="form-group wrap-input100">
-               <input type="text" name="usuario" class="form-control input100" placeholder="Insira seu usuário *" value="" />
-               <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+            <input type="text" name="usuario" class="form-control input100" placeholder="Insira seu usuário *" value="" />
+               <span class="focus-input100" data-placeholder="&#xe82a;"><i class="far fa-user input100" style="padding-top: 20px; padding-left: 15px;"></i></span>
             </div>
             <div class="form-group wrap-input100">
                <input type="password" name="senha" class="form-control input100" placeholder="Insira sua senha *" value="" />
-               <span class="focus-input100" data-placeholder="&#xe82a;"></span>
-               <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+               <span class="focus-input100" data-placeholder="&#xe82a;"><i class="far fa-lock input100" style="padding-top: 20px; padding-left: 15px;"></i></span>
             </div>
             <div class="form-group">
                <input type="submit" class="btnSubmit" value="Login" />
@@ -35,15 +34,15 @@
          <form action="<?= $data['routeRegister'] ?>" method="post">
             <div class="form-group wrap-input100">
                <input type="text" name="usuario" class="form-control input100" placeholder="Insira seu usuário *" value="" />
-               <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+               <span class="focus-input100" data-placeholder="&#xe82a;"><i class="far fa-user input100" style="padding-top: 20px; padding-left: 15px;"></i></span>
             </div>
             <div class="form-group wrap-input100">
                <input type="email" name="email" class="form-control input100" placeholder="Insira seu E-mail *" value="" />
-               <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+               <span class="focus-input100" data-placeholder="&#xe82a;"><i class="far fa-envelope input100" style="padding-top: 20px; padding-left: 15px;"></i></span>
             </div>
             <div class="form-group wrap-input100">
                <input type="password" name="senha" class="form-control input100" placeholder="Insira sua senha *" value="" />
-               <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+               <span class="focus-input100" data-placeholder="&#xe82a;"><i class="far fa-lock input100" style="padding-top: 20px; padding-left: 15px;"></i></span>
             </div>
             <div class="form-group">
                <button type="submit" class="btnSubmit"> Cadastrar </button>

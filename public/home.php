@@ -45,6 +45,7 @@ if (!is_null($message)) :
             <p class="card-text"><?= $data['quizzes'][$key][$i]['descricao'] ?></p>
             <a href="<?= "$data[routeDashQuiz]/$quiz[id]"?>">Detalhes</a>
           </div>
+          <p class="text-sm-left text-muted">Criado por <a href="#" class="text-reset"></a>.</p>
           <div class="row justify-content-end ">
             <?php
             if ($data['idQuestionarioAberto'] == $quiz['id']) :
