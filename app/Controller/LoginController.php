@@ -44,7 +44,7 @@ class LoginController
         $save = $usuario->save(
             [
                 'username' => $request['usuario'],
-                'password' => $request['senha'],
+                'password' => password_hash($request['senha'], PASSWORD_DEFAULT),
                 'email' => null
             ]
         );
@@ -77,10 +77,10 @@ class LoginController
 
         $usuario = new Usuario();
 
-        $userExist = $usuario->checkLogin($request['usuario'], $request['senha'], $request['id'], $request['tipo_usuario']);
+        $userExist = $usuario->checkLogin($request['usuario'], $request['id'], $request['tipo_usuario']);
 
-        if (!$userExist) {
-            $data = "Usuário inválido.";
+        if (!$userExist || !password_verify($request['senha'], $userExist->password)) {
+            $data = "Usuário ou senha inválidos.";
 
             message('login', $data);
             return redirect(route('login'));

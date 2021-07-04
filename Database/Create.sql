@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `quizdb`.`usuarios` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
-  `password` VARCHAR(32) NOT NULL,
+  `password` varchar(120) NOT NULL,
   `create_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `type_user` int(11) NOT NULL DEFAULT 2,
   UNIQUE (`email`),

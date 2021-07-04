@@ -7,8 +7,8 @@ USE `quizdb`;
 
 -- Usuarios
 INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
-(1, 'gabriel.tito', 'gabriel.tito@google.com', '321321', '2021-03-26 04:00:41', 2),
-(2, 'antonio.felix', 'antonio.felix@google.com', '123123', '2021-03-26 04:00:41', 1);
+(1, 'gabriel.tito', 'gabriel.tito@google.com', '$2y$10$aLitziCcF68N9ETUOHDypub8y.3MNamLCl/eJFCRmYjWPGGp8b3VO', '2021-03-26 04:00:41', 2),
+(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1);
 
 -- Questionarios
 
