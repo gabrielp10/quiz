@@ -10,7 +10,7 @@ if (!is_null($message)) :
 
 <section class="jumbotron text-center">
   <div class="container">
-    <h1>Bem vindo ao Quiz, <?= $_SESSION['usuario']; ?></h1>
+    <h1>Bem vindo(a) ao Quiz, <?= $_SESSION['usuario']; ?></h1>
     <p class="lead text-muted">Selecione um quiz para iniciar .</p>
     <p>
       <a href="<?= $data['routeScore'] ?>" class="btn btn-primary my-2">Resultados Anteriores</a>

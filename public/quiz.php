@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card">
-    <h3 class="text-center card-header"> Bem-vindo <?= $_SESSION['usuario'] ?>, Selecione uma das alternativas. Boa sorte!</h3>
+    <h3 class="text-center card-header"> Bem-vindo(a) <?= $_SESSION['usuario'] ?>, selecione uma das alternativas. Boa sorte!</h3>
     <?php if (empty($data['img'])) : ?>
       <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
         <rect width="100%" height="100%" fill="#79999c"></rect>

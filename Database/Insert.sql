@@ -8,23 +8,50 @@ USE `quizdb`;
 -- Usuarios
 INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
 (1, 'gabriel.tito', 'gabriel.tito@google.com', '$2y$10$aLitziCcF68N9ETUOHDypub8y.3MNamLCl/eJFCRmYjWPGGp8b3VO', '2021-03-26 04:00:41', 2),
-(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1);
+(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1),
+(3, 'vitoria.almeida', 'vitoria.almeidafx@gmail.com', '$2y$10$mBFHGr9PXz565QqTSsbvPufl.yhZBmLyi4eRaQxVoE0C1x2JhZWq2', '2021-07-16 22:41:42', 1);
+
+--
+-- Despejando dados para a tabela `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `Nome`) VALUES
+(1, 'Tecnologia da informação'),
+(2, 'Filmes e series'),
+(3, 'Esportes'),
+(4, 'Games');
+
+--
+-- Despejando dados para a tabela `subcategorias`
+--
+
+INSERT INTO `subcategorias` (`id`, `Nome`, `fk_categorias`) VALUES
+(1, 'PHP', 1),
+(2, 'Linux', 1),
+(3, 'Python', 1),
+(4, 'Series', 2),
+(5, 'Futebol', 3),
+(6, 'Super Mario', 4),
+(7, 'Resident Evil', 4),
+(8, 'Mortal Kombat', 4),
+(9, 'Basquete', 3),
+(10, 'Egames', 3);
 
 -- Questionarios
 
 INSERT INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_subcategorias`, `fk_usuario`) VALUES
-(1, 'php-logo.png', 'Curiosidades sobre PHP', 'Nesse quiz você poderá provar seus conhecimento na liguagem de programação PHP.', 1, 2),
-(2, 'bash-logo.jpg', 'Comandos mais utilizados no linux', 'Descubra o que você sabe sobre Linux!', 2, 2),
+(1, 'php-logo.png', 'Curiosidades sobre PHP', 'Nesse quiz você poderá provar seus conhecimento na linguagem de programação PHP.', 1, 2),
+(2, 'bash-logo.jpg', 'Comandos mais utilizados no Linux', 'Descubra o que você sabe sobre Linux!', 2, 2),
 (3, 'python-logo.png', 'Python - Básico', 'Python básico para iniciantes.', 3, 1),
 (4, 'breaking-bad.jpg', 'Breaking Bad', 'Você acha que sabe tudo sobre Breaking Bad? Descubra!', 4, NULL),
-(5, 'futebol.jpg', 'Futebol', 'Algumas curiosidades e fatos sobre o futebol\r\n', 5, NULL),
-(6, 'super-mario.jpg', 'Super Mario', 'Veja se você conhece sobre Super Mário!', 6, NULL),
+(5, 'futebol.jpg', 'Futebol', 'Algumas curiosidades e fatos sobre o futebol.\r\n', 5, NULL),
+(6, 'super-mario.jpg', 'Super Mario', 'Veja se você conhece sobre Super Mario!', 6, NULL),
 (7, 'the-office.jpg', 'The Office', 'Descubra o quanto você conhece sobre a série The Office!', 4, NULL),
-(8, 'bandersnatch.jpg', 'Bandersnatch', 'Algumas curiosidades sobre o enigmático episódio de Black Mirror', 4, NULL),
+(8, 'bandersnatch.jpg', 'Bandersnatch', 'Algumas curiosidades sobre o enigmático episódio de Black Mirror.', 4, NULL),
 (13, 'resident-evil4.jpg', 'Resident Evil - 4', 'Easter eggs que poucos conhece sobre Biohazard!', 7, NULL),
 (14, 'egames.jpg', 'Egames', 'O que você sabe sobre esse mais novo esporte?', 10, NULL),
-(15, 'basquete.jpg', 'Basquete', 'Curiosidades e fatos sobre a história do basquete', 9, NULL),
-(16, 'mortal-kombat.jpg', 'Mortal Kombat X', 'Algumas curiosidades sobre os novos personagens e história', 8, NULL);
+(15, 'basquete.jpg', 'Basquete', 'Curiosidades e fatos sobre a história do basquete.', 9, NULL),
+(16, 'mortal-kombat.jpg', 'Mortal Kombat X', 'Algumas curiosidades sobre os novos personagens e história.', 8, NULL);
 
 
 -- Linux id 2
@@ -41,7 +68,7 @@ INSERT INTO `quizdb`.`questoes`
 )
 VALUES
 (
-'Qual comando copia os arquivos entre os diretorios?',
+'Qual comando copia os arquivos entre os diretórios?',
 'mv',
 'sudo rm -rf /',
 'cat',
@@ -51,7 +78,7 @@ VALUES
 'D'
 ),
 (
-'Qual comando move os arquivos de um diretorio para o outro?',
+'Qual comando move os arquivos de um diretório para o outro?',
 'mv',
 'sudo rm -rf /',
 'cat',
@@ -99,7 +126,7 @@ INSERT INTO `quizdb`.`questoes`
 )
 VALUES
 (
-'Qual é a sintaxe correta para ter a saida "Hello World"?',
+'Qual é a sintaxe correta para ter a saída "Hello World"?',
 'print("Hello World")',
 'echo("Hello World");',
 'p("Hello World")',
@@ -109,7 +136,7 @@ VALUES
 'A'
 ),
 (
-'Como você inseri COMENTÁRIOS em códigos Python?',
+'Como inserir COMENTÁRIOS em códigos Python?',
 '/*Esse é um comentário*/',
 '//Esse é um comentário',
 '#Esse é um comentário',
@@ -119,7 +146,7 @@ VALUES
 'C'
 ),
 (
-'Qual deles NÃO é um nome de variável válido?',
+'Qual das opções abaixo NÃO é um nome de variável válido?',
 'minha_variavel',
 'minha-variavel',
 '_minhavariavel',
@@ -129,7 +156,7 @@ VALUES
 'B'
 ),
 (
-'Qual é a extensão de arquivo correta para arquivos Python?',
+'Qual é a extensão correta para arquivos Python?',
 '.pyt',
 '.pyth',
 '.snake',
@@ -209,31 +236,3 @@ INSERT INTO `pontuacoes` (`id`, `pontuacao`, `feito_em`, `fk_questao`, `fk_usuar
 (21, 3, '2021-06-18 21:18:52', 3, 2),
 (22, 3, '2021-06-19 05:41:49', 3, 1),
 (23, 2, '2021-06-19 05:42:01', 2, 1);
-
-
---
--- Despejando dados para a tabela `categorias`
---
-
-INSERT INTO `categorias` (`id`, `Nome`) VALUES
-(1, 'Tecnologia da informação'),
-(2, 'Filmes e series'),
-(3, 'Esportes'),
-(4, 'Games');
-
---
--- Despejando dados para a tabela `subcategorias`
---
-
-INSERT INTO `subcategorias` (`id`, `Nome`, `fk_categorias`) VALUES
-(1, 'PHP', 1),
-(2, 'Linux', 1),
-(3, 'Python', 1),
-(4, 'Series', 2),
-(5, 'Futebol', 3),
-(6, 'Super Mario', 4),
-(7, 'Resident Evil', 4),
-(8, 'Mortal Kombat', 4),
-(9, 'Basquete', 3),
-(10, 'Egames', 3);
-
