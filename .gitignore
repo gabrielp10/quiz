@@ -1,6 +1,4 @@
 /vendor/
 .vscode
 *.log
-
-app/Model/Conexao.php
-
+.env

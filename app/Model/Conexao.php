@@ -4,11 +4,11 @@ namespace App\Model;
 
 class Conexao
 {
-    private $db = 'mysql';
-    private $host = 'localhost';
-    private $user = 'root';
-    private $password = 'toor';
-    private $database = 'quizdb';
+    private $db = DATABASE;
+    private $host = DATABASE_HOST;
+    private $user = DATABASE_USER;
+    private $password = DATABASE_PASSWORD;
+    private $database = DATABASE_NAME;
     private $encoding = 'utf8';
     private $stmt;
     public $con;
