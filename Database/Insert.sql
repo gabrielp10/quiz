@@ -1,187 +1,18 @@
-USE `quizdb`;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- -----------------------------------------------------
--- Insert Table `quizdb`.`usuarios`
--- -----------------------------------------------------
---
-
--- Usuarios
-INSERT INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
-(1, 'gabriel.tito', 'gabriel.tito@google.com', '$2y$10$aLitziCcF68N9ETUOHDypub8y.3MNamLCl/eJFCRmYjWPGGp8b3VO', '2021-03-26 04:00:41', 2),
-(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1),
-(3, 'vitoria.almeida', 'vitoria.almeidafx@gmail.com', '$2y$10$mBFHGr9PXz565QqTSsbvPufl.yhZBmLyi4eRaQxVoE0C1x2JhZWq2', '2021-07-16 22:41:42', 1);
-
---
--- Despejando dados para a tabela `categorias`
---
-
-INSERT INTO `categorias` (`id`, `Nome`) VALUES
-(1, 'Tecnologia da informação'),
-(2, 'Filmes e series'),
-(3, 'Esportes'),
-(4, 'Games');
-
---
--- Despejando dados para a tabela `subcategorias`
---
-
-INSERT INTO `subcategorias` (`id`, `Nome`, `fk_categorias`) VALUES
-(1, 'PHP', 1),
-(2, 'Linux', 1),
-(3, 'Python', 1),
-(4, 'Series', 2),
-(5, 'Futebol', 3),
-(6, 'Super Mario', 4),
-(7, 'Resident Evil', 4),
-(8, 'Mortal Kombat', 4),
-(9, 'Basquete', 3),
-(10, 'Egames', 3);
-
--- Questionarios
-
-INSERT INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_subcategorias`, `fk_usuario`) VALUES
-(1, 'php-logo.png', 'Curiosidades sobre PHP', 'Nesse quiz você poderá provar seus conhecimento na linguagem de programação PHP.', 1, 2),
-(2, 'bash-logo.jpg', 'Comandos mais utilizados no Linux', 'Descubra o que você sabe sobre Linux!', 2, 2),
-(3, 'python-logo.png', 'Python - Básico', 'Python básico para iniciantes.', 3, 1),
-(4, 'breaking-bad.jpg', 'Breaking Bad', 'Você acha que sabe tudo sobre Breaking Bad? Descubra!', 4, NULL),
-(5, 'futebol.jpg', 'Futebol', 'Algumas curiosidades e fatos sobre o futebol.\r\n', 5, NULL),
-(6, 'super-mario.jpg', 'Super Mario', 'Veja se você conhece sobre Super Mario!', 6, NULL),
-(7, 'the-office.jpg', 'The Office', 'Descubra o quanto você conhece sobre a série The Office!', 4, NULL),
-(8, 'bandersnatch.jpg', 'Bandersnatch', 'Algumas curiosidades sobre o enigmático episódio de Black Mirror.', 4, NULL),
-(13, 'resident-evil4.jpg', 'Resident Evil - 4', 'Easter eggs que poucos conhece sobre Biohazard!', 7, NULL),
-(14, 'egames.jpg', 'Egames', 'O que você sabe sobre esse mais novo esporte?', 10, NULL),
-(15, 'basquete.jpg', 'Basquete', 'Curiosidades e fatos sobre a história do basquete.', 9, NULL),
-(16, 'mortal-kombat.jpg', 'Mortal Kombat X', 'Algumas curiosidades sobre os novos personagens e história.', 8, NULL);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 
--- Linux id 2
-INSERT INTO `quizdb`.`questoes`
-(
-`descricao`,
-`alternativa_a`,
-`alternativa_b`,
-`alternativa_c`,
-`alternativa_d`,
-`alternativa_e`,
-`fk_questionarios`,
-`resposta`
-)
-VALUES
-(
-'Qual comando copia os arquivos entre os diretórios?',
-'mv',
-'sudo rm -rf /',
-'cat',
-'cp',
-'cd',
-2,
-'D'
-),
-(
-'Qual comando move os arquivos de um diretório para o outro?',
-'mv',
-'sudo rm -rf /',
-'cat',
-'cp',
-'cd',
- 2,
-'A'
-);
+INSERT IGNORE INTO `acesso_questionarios` (`id`, `iniciado_em`, `terminado_em`, `fk_questionarios`, `fk_usuarios`) VALUES
+(104, '2021-07-24 17:33:27', '2021-07-24 17:33:40', 1, 1),
+(105, '2021-07-24 17:35:28', '2021-07-24 17:36:28', 1, 1);
 
--- PHP id 1
-INSERT INTO `quizdb`.`questoes`
-(
-`descricao`,
-`alternativa_a`,
-`alternativa_b`,
-`alternativa_c`,
-`alternativa_d`,
-`alternativa_e`,
-`fk_questionarios`,
-`resposta`
-)
-VALUES
-(
-'Qual função do PHP transforma o texto em maiúsculo?',
-'$string,toUpper()',
-'upper_str($tring)',
-'strtoupper($tring)',
-'str_upper($tring)',
-'upper($string)',
- 1,
-'C'
-);
-
--- Python id 3
-INSERT INTO `quizdb`.`questoes`
-(
-`descricao`,
-`alternativa_a`,
-`alternativa_b`,
-`alternativa_c`,
-`alternativa_d`,
-`alternativa_e`,
-`fk_questionarios`,
-`resposta`
-)
-VALUES
-(
-'Qual é a sintaxe correta para ter a saída "Hello World"?',
-'print("Hello World")',
-'echo("Hello World");',
-'p("Hello World")',
-'echo "Hello World"',
-'Nenhuma das alternativas',
- 3,
-'A'
-),
-(
-'Como inserir COMENTÁRIOS em códigos Python?',
-'/*Esse é um comentário*/',
-'//Esse é um comentário',
-'#Esse é um comentário',
-'--Esse é um comentário',
-'&lt;!-- Esse é um comentário --&gt;',
- 3,
-'C'
-),
-(
-'Qual das opções abaixo NÃO é um nome de variável válido?',
-'minha_variavel',
-'minha-variavel',
-'_minhavariavel',
-'minhaVariavel',
-'Minhavariavel',
- 3,
-'B'
-),
-(
-'Qual é a extensão correta para arquivos Python?',
-'.pyt',
-'.pyth',
-'.snake',
-'.pt',
-'.py',
- 3,
-'E'
-),
-(
-'Qual é a maneira correta de criar uma função em Python?',
-'create minhaFunction()',
-'function minhaFunction()',
-'def minhaFunction()',
-'public void minhaFunction()',
-'fn minhaFunction()',
- 3,
-'C'
-);
-
-
---
--- Despejando dados para a tabela `alternativas`
---
-
-INSERT INTO `alternativas` (`id`, `alternativa`, `resposta`, `fk_questoes`) VALUES
+INSERT IGNORE INTO `alternativas` (`id`, `alternativa`, `resposta`, `fk_questoes`) VALUES
 (1, 'mv', 0, 1),
 (2, 'sudo rm -rf /', 0, 1),
 (3, 'cat', 0, 1),
@@ -223,16 +54,217 @@ INSERT INTO `alternativas` (`id`, `alternativa`, `resposta`, `fk_questoes`) VALU
 (39, 'public void minhaFunction()', 0, 8),
 (40, 'fn minhaFunction()', 0, 8);
 
---
--- Despejando dados para a tabela `pontuacoes`
---
+INSERT IGNORE INTO `categorias` (`id`, `Nome`, `img`) VALUES
+(1, 'Tecnologia da informação', '1.jpg'),
+(2, 'Filmes e series', '2.jpg'),
+(3, 'Esportes', '3.jpg'),
+(4, 'Games', '4.jpg');
 
-INSERT INTO `pontuacoes` (`id`, `pontuacao`, `feito_em`, `fk_questao`, `fk_usuario`) VALUES
-(16, 0, '2021-03-29 01:04:25', 2, 1),
-(17, 1, '2021-03-29 01:04:42', 3, 1),
-(18, 0, '2021-03-29 01:06:53', 1, 1),
-(19, 0, '2021-03-29 01:22:14', 1, 1),
-(20, 2, '2021-03-30 03:23:09', 2, 1),
-(21, 3, '2021-06-18 21:18:52', 3, 2),
-(22, 3, '2021-06-19 05:41:49', 3, 1),
-(23, 2, '2021-06-19 05:42:01', 2, 1);
+INSERT IGNORE INTO `pontuacoes` (`id`, `pontuacao`, `feito_em`, `fk_questao`, `fk_usuario`) VALUES
+(16, 0, '2021-03-29 04:04:25', 2, 1),
+(17, 1, '2021-03-29 04:04:42', 3, 1),
+(18, 0, '2021-03-29 04:06:53', 1, 1),
+(19, 0, '2021-03-29 04:22:14', 1, 1),
+(20, 2, '2021-03-30 06:23:09', 2, 1),
+(21, 3, '2021-06-19 00:18:52', 3, 2),
+(22, 3, '2021-06-19 08:41:49', 3, 1),
+(23, 2, '2021-06-19 08:42:01', 2, 1),
+(86, 0, '2021-06-21 22:41:55', NULL, 1),
+(87, 0, '2021-06-21 22:50:50', NULL, 1),
+(88, 0, '2021-06-21 22:51:00', NULL, 1),
+(89, 0, '2021-06-22 02:17:33', NULL, 1),
+(90, 0, '2021-06-26 01:57:24', NULL, 1),
+(91, 0, '2021-06-26 01:57:59', NULL, 1),
+(92, 0, '2021-06-26 01:58:06', NULL, 1),
+(93, 0, '2021-06-26 01:58:12', NULL, 1),
+(94, 0, '2021-06-26 01:59:55', NULL, 1),
+(95, 0, '2021-06-26 02:00:06', NULL, 1),
+(96, 0, '2021-06-26 02:02:00', NULL, 1),
+(97, 0, '2021-06-26 02:05:34', NULL, 1),
+(98, 0, '2021-06-26 02:07:00', NULL, 1),
+(99, 0, '2021-06-26 02:09:28', NULL, 1),
+(100, 0, '2021-06-26 02:19:51', NULL, 1),
+(101, 0, '2021-06-26 02:24:19', NULL, 1),
+(102, 0, '2021-06-26 02:30:32', NULL, 1),
+(103, 0, '2021-06-26 02:30:39', NULL, 1),
+(104, 0, '2021-06-26 02:34:07', NULL, 1),
+(105, 0, '2021-06-26 02:34:15', NULL, 1),
+(106, 0, '2021-06-26 02:35:01', NULL, 1),
+(107, 0, '2021-06-26 02:35:12', NULL, 1),
+(108, 0, '2021-06-26 03:07:22', NULL, 1),
+(109, 0, '2021-06-26 03:07:57', NULL, 1),
+(110, 0, '2021-06-26 03:08:37', NULL, 1),
+(111, 0, '2021-06-26 03:10:14', NULL, 1),
+(112, 0, '2021-06-26 03:12:05', NULL, 1),
+(113, 0, '2021-06-26 03:12:27', NULL, 1),
+(114, 0, '2021-06-26 03:13:51', NULL, 1),
+(115, 0, '2021-06-26 03:13:57', NULL, 1),
+(116, 0, '2021-06-26 03:14:08', NULL, 1),
+(117, 0, '2021-06-26 03:21:35', NULL, 1),
+(118, 0, '2021-06-26 03:21:54', NULL, 1),
+(119, 0, '2021-06-26 04:22:03', NULL, 1),
+(120, 0, '2021-06-26 04:22:21', NULL, 1),
+(121, 1, '2021-06-26 04:22:39', NULL, 1),
+(122, 1, '2021-06-26 04:23:32', NULL, 1),
+(123, 2, '2021-06-26 04:23:54', NULL, 1),
+(124, 2, '2021-06-26 04:24:24', NULL, 1),
+(125, 2, '2021-06-26 04:25:14', NULL, 1),
+(126, 1, '2021-06-26 04:36:00', NULL, 1),
+(127, 1, '2021-06-26 04:37:35', NULL, 1),
+(128, 1, '2021-06-26 04:37:56', NULL, 1),
+(129, 1, '2021-06-26 04:41:01', NULL, 1),
+(130, 1, '2021-06-26 04:42:16', NULL, 1),
+(131, 1, '2021-06-26 04:43:52', NULL, 1),
+(132, 1, '2021-06-26 04:49:10', NULL, 1),
+(133, 1, '2021-06-26 04:49:32', NULL, 1),
+(134, 1, '2021-06-26 04:50:52', NULL, 1),
+(135, 1, '2021-06-26 04:51:01', NULL, 1),
+(136, 1, '2021-06-26 04:51:13', NULL, 1),
+(137, 1, '2021-06-26 04:57:26', 1, 1),
+(138, 5, '2021-06-26 04:57:51', 3, 1),
+(139, 2, '2021-06-26 05:13:55', 2, 1),
+(140, 2, '2021-06-26 05:26:59', 2, 1),
+(141, 1, '2021-06-26 05:27:15', 3, 1),
+(142, 1, '2021-06-26 05:30:08', 2, 1),
+(143, 1, '2021-06-26 05:30:16', 2, 1),
+(144, 1, '2021-06-26 05:31:02', 2, 1),
+(145, 1, '2021-06-26 05:32:11', 2, 1),
+(146, 1, '2021-06-26 05:33:46', 2, 1),
+(147, 0, '2021-06-26 05:33:51', 2, 1),
+(148, 1, '2021-06-26 18:08:34', 2, 1),
+(149, 2, '2021-06-26 18:20:06', 2, 1),
+(150, 2, '2021-06-26 18:24:49', 2, 1),
+(151, 2, '2021-06-26 18:26:54', 2, 1),
+(152, 2, '2021-06-26 18:27:36', 2, 1),
+(153, 2, '2021-06-26 18:28:16', 2, 1),
+(154, 2, '2021-06-26 18:30:00', 2, 1),
+(155, 2, '2021-06-26 18:34:15', 2, 1),
+(156, 2, '2021-06-26 18:35:06', 2, 1),
+(157, 2, '2021-06-26 18:36:18', 2, 1),
+(158, 2, '2021-06-26 18:37:02', 2, 1),
+(159, 2, '2021-06-26 18:37:58', 2, 1),
+(160, 2, '2021-06-26 18:38:51', 2, 1),
+(161, 2, '2021-06-26 18:39:54', 2, 1),
+(162, 2, '2021-06-26 18:41:12', 2, 1),
+(163, 2, '2021-06-26 18:41:19', 2, 1),
+(164, 2, '2021-06-26 18:41:27', 2, 1),
+(165, 2, '2021-06-26 18:41:42', 2, 1),
+(166, 2, '2021-06-26 18:41:50', 2, 1),
+(167, 2, '2021-06-26 18:42:00', 2, 1),
+(168, 2, '2021-06-26 18:42:07', 2, 1),
+(169, 2, '2021-06-26 18:42:13', 2, 1),
+(170, 2, '2021-06-26 18:43:10', 2, 1),
+(171, 2, '2021-06-26 18:43:35', 2, 1),
+(172, 2, '2021-06-26 18:43:48', 2, 1),
+(173, 2, '2021-06-26 18:44:24', 2, 1),
+(174, 2, '2021-06-26 18:44:42', 2, 1),
+(175, 2, '2021-06-26 18:45:03', 2, 1),
+(176, 2, '2021-06-26 18:45:10', 2, 1),
+(177, 2, '2021-06-26 18:45:21', 2, 1),
+(178, 2, '2021-06-26 18:45:44', 2, 1),
+(179, 2, '2021-06-26 18:45:50', 2, 1),
+(180, 2, '2021-06-26 18:46:19', 2, 1),
+(181, 2, '2021-06-26 18:47:06', 2, 1),
+(182, 2, '2021-06-26 18:47:08', 2, 1),
+(183, 2, '2021-06-26 18:47:14', 2, 1),
+(184, 2, '2021-06-26 18:47:30', 2, 1),
+(185, 2, '2021-06-26 18:48:51', 2, 1),
+(186, 2, '2021-06-26 18:49:27', 2, 1),
+(187, 2, '2021-06-26 18:50:01', 2, 1),
+(188, 2, '2021-06-26 18:50:12', 2, 1),
+(189, 2, '2021-06-26 18:50:18', 2, 1),
+(190, 2, '2021-06-26 18:50:33', 2, 1),
+(191, 2, '2021-06-26 18:51:36', 2, 1),
+(192, 2, '2021-06-26 18:53:33', 2, 1),
+(193, 2, '2021-06-26 18:54:22', 2, 1),
+(194, 2, '2021-06-26 18:55:20', 2, 1),
+(195, 2, '2021-06-26 18:55:51', 2, 1),
+(196, 2, '2021-06-26 19:02:36', 2, 1),
+(197, 2, '2021-06-26 19:02:45', 2, 1),
+(198, 2, '2021-06-26 19:02:50', 2, 1),
+(199, 0, '2021-06-26 19:04:59', 2, 1),
+(200, 0, '2021-06-26 19:07:24', 2, 1),
+(201, 0, '2021-06-26 19:07:40', 2, 1),
+(202, 0, '2021-06-26 19:07:56', 2, 1),
+(203, 0, '2021-06-26 19:09:28', 2, 1),
+(204, 0, '2021-06-26 19:11:48', 2, 1),
+(205, 0, '2021-06-26 19:12:13', 2, 1),
+(206, 0, '2021-06-26 19:12:38', 2, 1),
+(207, 3, '2021-06-26 19:13:41', 3, 2),
+(208, 3, '2021-06-26 19:13:45', 3, 2),
+(209, 3, '2021-06-26 19:14:55', 3, 2),
+(210, 3, '2021-06-26 19:15:46', 3, 2),
+(211, 3, '2021-06-26 19:15:54', 3, 2),
+(212, 3, '2021-06-26 19:15:59', 3, 2),
+(213, 3, '2021-06-26 19:16:06', 3, 2),
+(214, 3, '2021-06-26 19:16:23', 3, 2),
+(215, 3, '2021-06-26 19:16:53', 3, 2),
+(216, 3, '2021-06-26 19:16:59', 3, 2),
+(217, 3, '2021-06-26 19:17:28', 3, 2),
+(218, 3, '2021-06-26 19:17:40', 3, 2),
+(219, 3, '2021-06-26 19:17:56', 3, 2),
+(220, 3, '2021-06-26 19:18:28', 3, 2),
+(221, 2, '2021-06-26 19:19:07', 2, 2),
+(222, 2, '2021-06-26 19:23:41', 2, 2),
+(223, 2, '2021-06-26 19:24:53', 2, 2),
+(224, 1, '2021-06-26 19:25:10', 2, 2),
+(225, 1, '2021-06-26 19:26:26', 2, 2),
+(226, 1, '2021-06-26 19:27:12', 2, 2),
+(227, 1, '2021-06-27 01:26:31', 2, 2),
+(228, 1, '2021-06-27 01:26:54', 2, 2),
+(229, 1, '2021-06-27 01:55:02', 1, 2),
+(230, 1, '2021-06-27 01:55:08', 1, 2),
+(231, 1, '2021-06-27 03:09:42', 1, 2),
+(232, 1, '2021-06-27 03:13:35', 1, 2),
+(233, 1, '2021-06-27 22:55:03', 1, 1),
+(234, 0, '2021-06-27 23:51:15', 1, 1),
+(235, 1, '2021-06-27 23:51:26', 2, 1),
+(236, 1, '2021-06-27 23:51:35', 2, 1),
+(237, 1, '2021-07-24 17:33:40', 1, 1),
+(238, 1, '2021-07-24 17:36:28', 1, 1);
+
+INSERT IGNORE INTO `questionarios` (`id`, `img`, `nome`, `descricao`, `fk_subcategorias`, `fk_usuario`) VALUES
+(1, '1.png', 'Curiosidades sobre PHP', 'Nesse quiz você poderá provar seus conhecimento na liguagem de programação PHP.', 1, 2),
+(2, '2.jpg', 'Comandos mais utilizados no linux', 'Descubra o que você sabe sobre Linux!', 2, 2),
+(3, '3.png', 'Python - Básico', 'Python básico para iniciantes.', 3, 1),
+(4, '4.jpg', 'Breaking Bad', 'Você acha que sabe tudo sobre Breaking Bad? Descubra!', 4, NULL),
+(5, '5.jpg', 'Futebol', 'Algumas curiosidades e fatos sobre o futebol\r\n', 5, NULL),
+(6, '6.jpg', 'Super Mario', 'Veja se você conhece sobre Super Mário!', 6, NULL),
+(7, '7.jpg', 'The Office', 'Descubra o quanto você conhece sobre a série The Office!', 4, NULL),
+(8, '8.jpg', 'Bandersnatch', 'Algumas curiosidades sobre o enigmático episódio de Black Mirror', 4, NULL),
+(13, '13.jpg', 'Resident Evil - 4', 'Easter eggs que poucos conhece sobre Biohazard!', 7, NULL),
+(14, '14.jpg', 'Egames', 'O que você sabe sobre esse mais novo esporte?', 10, NULL),
+(15, '15.jpg', 'Basquete', 'Curiosidades e fatos sobre a história do basquete', 9, NULL),
+(16, '16.jpg', 'Mortal Kombat X', 'Algumas curiosidades sobre os novos personagens e história', 8, NULL);
+
+INSERT IGNORE INTO `questoes` (`id`, `descricao`, `fk_questionarios`, `resposta`) VALUES
+(1, 'Qual comando copia os arquivos entre os diretorios?', 2, 'cp'),
+(2, 'Qual comando move os arquivos de um diretorio para o outro?', 2, 'mv'),
+(3, 'Qual função do PHP transforma o texto em maiúsculo?', 1, 'strtoupper($tring)'),
+(4, 'Qual é a sintaxe correta para ter a saida \"Hello World\"?', 3, 'print(\"Hello World\")'),
+(5, 'Como você inseri COMENTÁRIOS em códigos Python?', 3, '#Esse é um comentário'),
+(6, 'Qual deles NÃO é um nome de variável válido?', 3, 'minha-variavel'),
+(7, 'Qual é a extensão de arquivo correta para arquivos Python?', 3, '.py'),
+(8, 'Qual é a maneira correta de criar uma função em Python?', 3, 'def minhaFunction()');
+
+INSERT IGNORE INTO `subcategorias` (`id`, `Nome`, `fk_categorias`) VALUES
+(1, 'PHP', 1),
+(2, 'Linux', 1),
+(3, 'Python', 1),
+(4, 'Series', 2),
+(5, 'Futebol', 3),
+(6, 'Super Mario', 4),
+(7, 'Resident Evil', 4),
+(8, 'Mortal Kombat', 4),
+(9, 'Basquete', 3),
+(10, 'Egames', 3);
+
+INSERT IGNORE INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
+(1, 'gabriel.tito', 'gabriel.tito@google.com', '$2y$10$aLitziCcF68N9ETUOHDypub8y.3MNamLCl/eJFCRmYjWPGGp8b3VO', '2021-03-26 04:00:41', 2),
+(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1);
+(3, 'vitoria.almeida', 'vitoria.almeidafx@gmail.com', '$2y$10$mBFHGr9PXz565QqTSsbvPufl.yhZBmLyi4eRaQxVoE0C1x2JhZWq2', '2021-07-16 22:41:42', 1);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

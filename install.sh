@@ -4,23 +4,15 @@ database='quizdb'
 
 if [[ $1 == '-h' ]] || [[ -z "$1" ]] 
 then
-  echo "Uso/Usage: ./install.sh dbuser dbpass hostname"
+  printf "Uso/Usage: ./install.sh dbuser dbpass hostname \n"
   exit
 else
-echo ""
-echo "--Gerando pendências do PHP--"
-echo ""
+printf "--Gerando pendências do PHP--\n"
 composer dump-autoload
-echo ""
-echo "--Gerando banco de dados--"
-echo ""
+printf "--Gerando banco de dados--\n"
 mysql -h $3 --user $1 --password=$2 $database < ./Database/Create.sql
-echo ""
-echo "--Inserindo dados no banco--"
-echo ""
+printf "--Inserindo dados no banco--\n"
 mysql -h $3 --user $1 --password=$2 $database < ./Database/Insert.sql
-echo ""
-echo "--Processo finalizado!--"
-echo ""
+printf "--Processo finalizado!--\n"
 fi
 exit

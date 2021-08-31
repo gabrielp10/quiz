@@ -5,7 +5,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/assets/css/estilo.css">
-    <script src="/public/assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/public/assets/js/jquery-3.6.0.js"></script>
     <script src="/public/assets/js/popper.min.js"></script>
     <script src="/public/assets/js/main.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>

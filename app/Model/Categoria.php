@@ -17,7 +17,8 @@ class Categoria extends Model
     $sql = "SELECT q.nome,
                    q.descricao,
                    q.img,
-                   q.id
+                   q.id,
+                   c.img as background
               FROM categorias c
                 INNER JOIN subcategorias s on s.fk_categorias = c.id 
                 INNER JOIN questionarios q on q.fk_subcategorias = s.id  
