@@ -8,7 +8,7 @@ use App\Controller;
           <rect width="100%" height="100%" fill="#79999c"></rect>
         </svg>
       <?php else : ?>
-          <img class="card-img-top mt-2" src="<?= "/public/assets/img/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap" />
+          <img class="card-img-top mt-2" src="<?= "/public/assets/img/quizzes/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap" />
       <?php endif;?>
       <div class="text-center"><h3>Seus pontos totais:  <?=$data['pontuacao']?>  de   <?= $data['totalQuestoes'] ?></h3></div>
         <div class="progress" style="height: 30px; width:50%; margin-left:25%;">

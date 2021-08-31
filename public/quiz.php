@@ -6,7 +6,7 @@
         <rect width="100%" height="100%" fill="#79999c"></rect>
       </svg>
     <?php else : ?>
-      <img class="card-img-top mt-2" src="<?= "/public/assets/img/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap" />
+      <img class="card-img-top mt-2" src="<?= "/public/assets/img/quizzes/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap" />
     <?php endif; ?>
     <h3 class="text-center card-header font-weight-bold"><?= $data['perguntas'][0]['questionario_titulo'] ?> </h3>
   </div>

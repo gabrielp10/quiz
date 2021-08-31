@@ -8,7 +8,7 @@ use App\Controller;
         <rect width="100%" height="100%" fill="#79999c"></rect>
       </svg>
     <?php else : ?>
-        <img class="card-img-top mt-2" src="<?= "/public/assets/img/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap" />
+        <img class="card-img-top mt-2" src="<?= "/public/assets/img/quizzes/{$data['img']}" ?>" width="100%" height="100%" alt="Card image cap" />
     <?php endif;?>
     <h3><?=$data['descricao']?></h3>
     <a class="btn btn-indigo btn-rounded btn-lg btn-outline-secondary" href="<?= "$data[routeQuiz]/$data[idQuestionario]" ?>">Iniciar</a>
