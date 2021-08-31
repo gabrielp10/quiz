@@ -37,7 +37,7 @@ if ($rowCount > 0) {
 			<tr class='clickable-row' data-href='dash-quiz/$row[id]'>
           <td title='$row[descricao]'> 
             <a class='linkpesquisa' href='dash-quiz/$row[id]'>
-            <img class='rounded-circle' src='/public/assets/img/$row[img]' width='75px' height='70px'>
+            <img class='rounded-circle' src='/public/assets/img/quizzes/$row[img]' width='75px' height='70px'>
             $row[questionario] - $row[subcategoria] - $row[categoria]
             </a>
           </td>
