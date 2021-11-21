@@ -261,7 +261,7 @@ INSERT IGNORE INTO `subcategorias` (`id`, `Nome`, `fk_categorias`) VALUES
 
 INSERT IGNORE INTO `usuarios` (`id`, `username`, `email`, `password`, `create_at`, `type_user`) VALUES
 (1, 'gabriel.tito', 'gabriel.tito@google.com', '$2y$10$aLitziCcF68N9ETUOHDypub8y.3MNamLCl/eJFCRmYjWPGGp8b3VO', '2021-03-26 04:00:41', 2),
-(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1);
+(2, 'antonio.felix', 'antonio.felix@google.com', '$2y$10$0n2ubqsNgfLUkPpvv5SNSuPqefvTi6BWdx0/tzp9nfBSD4XmBpi.m', '2021-03-26 04:00:41', 1),
 (3, 'vitoria.almeida', 'vitoria.almeidafx@gmail.com', '$2y$10$mBFHGr9PXz565QqTSsbvPufl.yhZBmLyi4eRaQxVoE0C1x2JhZWq2', '2021-07-16 22:41:42', 1);
 COMMIT;
 
